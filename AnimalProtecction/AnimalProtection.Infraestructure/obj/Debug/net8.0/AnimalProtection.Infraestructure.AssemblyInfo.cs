@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AnimalProtection.Infraestructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b6ab261bd6dfdc04750439548f10efd5bbd13404")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d920ccc662748defb497b5405d98f225dbccf14")]
 [assembly: System.Reflection.AssemblyProductAttribute("AnimalProtection.Infraestructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AnimalProtection.Infraestructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

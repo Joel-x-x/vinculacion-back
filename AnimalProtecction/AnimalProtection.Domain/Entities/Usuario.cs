@@ -26,4 +26,6 @@ public partial class Usuario
     public DateTime Fechacreacion { get; set; }
 
     public DateTime? Fechaactualizacion { get; set; }
+    public virtual ICollection<RoleUsuario> RoleUsuarios { get; set; } = new List<RoleUsuario>();
+
 }

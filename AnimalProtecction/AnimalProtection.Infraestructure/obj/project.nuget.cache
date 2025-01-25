@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pQiWOF6mhCpDmlwNP0nZ6Kr5/RwET8C3xwSZ+rn9Y71lwqRcQ8VkD1cCUC/P4gvkxOfgXzqQudNfQY/MBSogpQ==",
+  "dgSpecHash": "NGdBPHyXLsjH7Arw2x2ZOuwlI2RAeRZIciPaPK2gh7mCAOR9lFD+D68lG3xNEIMsBIcHKkb1OoOJXxMML+bL9g==",
   "success": true,
-  "projectFilePath": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Infraestructure/AnimalProtection.Infraestructure.csproj",
+  "projectFilePath": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Infraestructure/AnimalProtection.Infraestructure.csproj",
   "expectedPackageFiles": [
     "/Users/edison.sanchez/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/edison.sanchez/.nuget/packages/microsoft.aspnetcore.mvc.versioning/5.1.0/microsoft.aspnetcore.mvc.versioning.5.1.0.nupkg.sha512",
@@ -32,6 +32,8 @@
     "/Users/edison.sanchez/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
     "/Users/edison.sanchez/.nuget/packages/npgsql/8.0.0/npgsql.8.0.0.nupkg.sha512",
     "/Users/edison.sanchez/.nuget/packages/npgsql.entityframeworkcore.postgresql/8.0.0/npgsql.entityframeworkcore.postgresql.8.0.0.nupkg.sha512",
+    "/Users/edison.sanchez/.nuget/packages/pipelines.sockets.unofficial/2.2.8/pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+    "/Users/edison.sanchez/.nuget/packages/stackexchange.redis/2.8.24/stackexchange.redis.2.8.24.nupkg.sha512",
     "/Users/edison.sanchez/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/Users/edison.sanchez/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/Users/edison.sanchez/.nuget/packages/system.composition/6.0.0/system.composition.6.0.0.nupkg.sha512",

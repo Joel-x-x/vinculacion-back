@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj": {}
+    "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj": {}
   },
   "projects": {
-    "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj": {
+    "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj",
+        "projectUniqueName": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj",
         "projectName": "AnimalProtection.Domain",
-        "projectPath": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj",
+        "projectPath": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj",
         "packagesPath": "/Users/edison.sanchez/.nuget/packages/",
-        "outputPath": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Domain/obj/",
+        "outputPath": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/edison.sanchez/.nuget/NuGet/NuGet.Config"

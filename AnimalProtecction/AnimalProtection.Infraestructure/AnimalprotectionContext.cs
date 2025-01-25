@@ -14,8 +14,15 @@ public partial class AnimalprotectionContext : DbContext
     {
     }
 
-    public virtual DbSet<Usuario> Usuarios { get; set; }
+    public virtual DbSet<Menu> Menus { get; set; }
+
     public virtual DbSet<Rol> Rols { get; set; }
+
+    public virtual DbSet<RoleUsuario> RoleUsuarios { get; set; }
+
+    public virtual DbSet<Rolmenu> Rolmenus { get; set; }
+
+    public virtual DbSet<Usuario> Usuarios { get; set; }
 
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
