@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "K+dr+uTl7lSmZ9bbvoLU3VU1QzMHYPMCKC+iWvNZD8rfh4Vy1B91Od0IXGOHsOiQX7JKVOkjaBRBvLaLvbhxzA==",
+  "success": true,
+  "projectFilePath": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj",
+  "expectedPackageFiles": [
+    "/Users/edison.sanchez/.nuget/packages/microsoft.aspnetcore.mvc.versioning/5.1.0/microsoft.aspnetcore.mvc.versioning.5.1.0.nupkg.sha512",
+    "/Users/edison.sanchez/.nuget/packages/microsoft.aspnetcore.mvc.versioning.apiexplorer/5.1.0/microsoft.aspnetcore.mvc.versioning.apiexplorer.5.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}

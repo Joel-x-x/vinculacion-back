@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AnimalProtection.Api</name>
+    </assembly>
+    <members>
+        <member name="M:AnimalProtection.Api.Controller.UsuarioController.GetAll">
+            <summary>
+            Obtiene todos los usuarios registrados.
+            </summary>
+            <returns>Una lista de usuarios.</returns>
+            <response code="200">Devuelve la lista de usuarios.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran usuarios.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.UsuarioController.GetUserByEmail(System.String)">
+            <summary>
+            Obtiene un usuario por su dirección de correo electrónico.
+            </summary>
+            <param name="email">La dirección de correo electrónico del usuario.</param>
+            <returns>El usuario correspondiente al correo electrónico.</returns>
+            <response code="200">Devuelve el usuario encontrado.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentra el usuario.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.UsuarioV2Controller.GetAll">
+            <summary>
+            Obtiene todos los usuarios registrados.
+            </summary>
+            <returns>Una lista de usuarios.</returns>
+            <response code="200">Devuelve la lista de usuarios.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran usuarios.</response>
+        </member>
+    </members>
+</doc>

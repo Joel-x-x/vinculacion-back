@@ -1,0 +1,84 @@
+using System.Reflection;
+using AnimalProtecction.Generated;
+using AnimalProtection.Api.Configuration;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Configuración de la cadena de conexión
+var connectionString = builder.Configuration.GetConnectionString("AnimalProtectionDb");
+builder.Services.AddDbContext<AnimalprotectionContext>(options =>
+    options.UseNpgsql(connectionString));
+
+// Configurar Autofac
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(containerBuilder =>
+{
+    containerBuilder.RegisterModule(new ApplicationModule());
+    containerBuilder.RegisterModule(new InfrastructureModule());
+    containerBuilder.RegisterAssemblyTypes(typeof(Program).Assembly)
+        .Where(t => t.Name.EndsWith("Controller"))
+        .AsSelf();
+});
+
+// Configuración de versionado de API
+builder.Services.AddApiVersioning(options =>
+{
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.ReportApiVersions = true;
+});
+
+builder.Services.AddVersionedApiExplorer(options =>
+{
+    options.GroupNameFormat = "'v'VVV"; // Formato de versión (v1, v2, etc.)
+    options.SubstituteApiVersionInUrl = true; // Sustituye {version} en las rutas
+});
+
+// Configuración de Swagger
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Animal Protection API - Versión 1",
+        Version = "v1",
+        Description = "Documentación para la versión 1 de la API de Animal Protection."
+    });
+
+    options.SwaggerDoc("v2", new OpenApiInfo
+    {
+        Title = "Animal Protection API - Versión 2",
+        Version = "v2",
+        Description = "Documentación para la versión 2 de la API de Animal Protection."
+    });
+
+    // Incluir la documentación XML
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    options.IncludeXmlComments(xmlPath);
+});
+
+// Configurar controladores
+builder.Services.AddControllers();
+
+var app = builder.Build();
+
+// Configuración del pipeline
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "API Versión 1");
+        options.SwaggerEndpoint("/swagger/v2/swagger.json", "API Versión 2");
+    });
+}
+
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+app.Run();

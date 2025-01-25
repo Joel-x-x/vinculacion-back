@@ -1,0 +1,6 @@
+@AnimalProtection.Api_HostAddress = http://localhost:5263
+
+GET {{AnimalProtection.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
