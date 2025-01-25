@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Infraestructure/AnimalProtection.Infraestructure.csproj": {}
+    "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Infraestructure/AnimalProtection.Infraestructure.csproj": {}
   },
   "projects": {
-    "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj": {
+    "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj",
+        "projectUniqueName": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj",
         "projectName": "AnimalProtection.Domain",
-        "projectPath": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj",
+        "projectPath": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj",
         "packagesPath": "/Users/edison.sanchez/.nuget/packages/",
-        "outputPath": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Domain/obj/",
+        "outputPath": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/edison.sanchez/.nuget/NuGet/NuGet.Config"
@@ -64,14 +64,14 @@
         }
       }
     },
-    "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Infraestructure/AnimalProtection.Infraestructure.csproj": {
+    "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Infraestructure/AnimalProtection.Infraestructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Infraestructure/AnimalProtection.Infraestructure.csproj",
+        "projectUniqueName": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Infraestructure/AnimalProtection.Infraestructure.csproj",
         "projectName": "AnimalProtection.Infraestructure",
-        "projectPath": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Infraestructure/AnimalProtection.Infraestructure.csproj",
+        "projectPath": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Infraestructure/AnimalProtection.Infraestructure.csproj",
         "packagesPath": "/Users/edison.sanchez/.nuget/packages/",
-        "outputPath": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Infraestructure/obj/",
+        "outputPath": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Infraestructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/edison.sanchez/.nuget/NuGet/NuGet.Config"
@@ -87,8 +87,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj": {
-                "projectPath": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj"
+              "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj": {
+                "projectPath": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj"
               }
             }
           }
@@ -124,6 +124,10 @@
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.8.24, )"
             }
           },
           "imports": [
