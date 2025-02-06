@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AnimalProtection.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d920ccc662748defb497b5405d98f225dbccf14")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f548af6073c3898c9943301fa16d90020dc4612f")]
 [assembly: System.Reflection.AssemblyProductAttribute("AnimalProtection.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AnimalProtection.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

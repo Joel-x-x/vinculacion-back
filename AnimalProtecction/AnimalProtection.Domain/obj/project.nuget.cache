@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Bhbw4A77BOF61wwNTliH7tkbqLh5oyaV65cegMn0speuetrP+VS7oHeDJq858aqyVk6M1Fabq09/8BCMxO55UQ==",
+  "dgSpecHash": "l2EdAHwo5ds=",
   "success": true,
-  "projectFilePath": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj",
+  "projectFilePath": "C:\\laragon\\www\\RepoUniandes\\septimo\\netcore\\vinculacion-back\\AnimalProtecction\\AnimalProtection.Domain\\AnimalProtection.Domain.csproj",
   "expectedPackageFiles": [
-    "/Users/edison.sanchez/.nuget/packages/microsoft.aspnetcore.mvc.versioning/5.1.0/microsoft.aspnetcore.mvc.versioning.5.1.0.nupkg.sha512",
-    "/Users/edison.sanchez/.nuget/packages/microsoft.aspnetcore.mvc.versioning.apiexplorer/5.1.0/microsoft.aspnetcore.mvc.versioning.apiexplorer.5.1.0.nupkg.sha512"
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.1.0\\microsoft.aspnetcore.mvc.versioning.5.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning.apiexplorer\\5.1.0\\microsoft.aspnetcore.mvc.versioning.apiexplorer.5.1.0.nupkg.sha512"
   ],
   "logs": []
 }

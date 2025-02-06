@@ -24,3 +24,16 @@
 /Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/obj/Debug/net8.0/refint/AnimalProtection.Domain.dll
 /Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/obj/Debug/net8.0/AnimalProtection.Domain.pdb
 /Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/obj/Debug/net8.0/ref/AnimalProtection.Domain.dll
+C:\laragon\www\RepoUniandes\septimo\netcore\vinculacion-back\AnimalProtecction\AnimalProtection.Domain\bin\Debug\net8.0\AnimalProtection.Domain.deps.json
+C:\laragon\www\RepoUniandes\septimo\netcore\vinculacion-back\AnimalProtecction\AnimalProtection.Domain\bin\Debug\net8.0\AnimalProtection.Domain.dll
+C:\laragon\www\RepoUniandes\septimo\netcore\vinculacion-back\AnimalProtecction\AnimalProtection.Domain\bin\Debug\net8.0\AnimalProtection.Domain.pdb
+C:\laragon\www\RepoUniandes\septimo\netcore\vinculacion-back\AnimalProtecction\AnimalProtection.Domain\obj\Debug\net8.0\AnimalProtection.Domain.csproj.AssemblyReference.cache
+C:\laragon\www\RepoUniandes\septimo\netcore\vinculacion-back\AnimalProtecction\AnimalProtection.Domain\obj\Debug\net8.0\AnimalProtection.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\laragon\www\RepoUniandes\septimo\netcore\vinculacion-back\AnimalProtecction\AnimalProtection.Domain\obj\Debug\net8.0\AnimalProtection.Domain.AssemblyInfoInputs.cache
+C:\laragon\www\RepoUniandes\septimo\netcore\vinculacion-back\AnimalProtecction\AnimalProtection.Domain\obj\Debug\net8.0\AnimalProtection.Domain.AssemblyInfo.cs
+C:\laragon\www\RepoUniandes\septimo\netcore\vinculacion-back\AnimalProtecction\AnimalProtection.Domain\obj\Debug\net8.0\AnimalProtection.Domain.csproj.CoreCompileInputs.cache
+C:\laragon\www\RepoUniandes\septimo\netcore\vinculacion-back\AnimalProtecction\AnimalProtection.Domain\obj\Debug\net8.0\AnimalProtection.Domain.sourcelink.json
+C:\laragon\www\RepoUniandes\septimo\netcore\vinculacion-back\AnimalProtecction\AnimalProtection.Domain\obj\Debug\net8.0\AnimalProtection.Domain.dll
+C:\laragon\www\RepoUniandes\septimo\netcore\vinculacion-back\AnimalProtecction\AnimalProtection.Domain\obj\Debug\net8.0\refint\AnimalProtection.Domain.dll
+C:\laragon\www\RepoUniandes\septimo\netcore\vinculacion-back\AnimalProtecction\AnimalProtection.Domain\obj\Debug\net8.0\AnimalProtection.Domain.pdb
+C:\laragon\www\RepoUniandes\septimo\netcore\vinculacion-back\AnimalProtecction\AnimalProtection.Domain\obj\Debug\net8.0\ref\AnimalProtection.Domain.dll

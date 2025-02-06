@@ -1,0 +1,53 @@
+# Ignore Rider-specific files
+.idea/
+.idea/**
+*.sln.iml
+
+# Ignore build outputs
+bin/
+obj/
+out/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore package dependencies
+packages/
+.nuget/
+
+# Ignore logs and other runtime files
+*.log
+*.tlog
+
+# Ignore temporary and cache files
+*.vs/
+.vscode/
+
+# Ignore generated files
+*.generated.cs
+
+# Ignore Rider workspace files
+.idea/
+.idea_modules/
+.idea/*
+*.iml
+*.ipr
+*.iws
+
+# Ignore local NuGet packages
+*.nupkg
+**/project.lock.json
+
+# Ignore Resharper files
+*.DotSettings.user
+
+# Ignore database files
+*.mdf
+*.ldf
+
+# Ignore publish artifacts
+publish/
+wwwroot/
