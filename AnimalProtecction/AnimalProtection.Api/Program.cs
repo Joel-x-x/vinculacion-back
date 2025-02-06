@@ -1,11 +1,15 @@
 using System.Reflection;
+using System.Text;
 using AnimalProtecction.Generated;
 using AnimalProtection.Api.Configuration;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +17,9 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("AnimalProtectionDb");
 builder.Services.AddDbContext<AnimalprotectionContext>(options =>
     options.UseNpgsql(connectionString));
+
+var redisConnectionString = builder.Configuration["Redis:ConnectionString"];
+var redis = ConnectionMultiplexer.Connect(redisConnectionString);
 
 // Configurar Autofac
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
@@ -64,7 +71,20 @@ builder.Services.AddSwaggerGen(options =>
 
 // Configurar controladores
 builder.Services.AddControllers();
-
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+    });
 var app = builder.Build();
 
 // Configuración del pipeline

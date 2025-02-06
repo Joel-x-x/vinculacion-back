@@ -637,6 +637,39 @@
           }
         }
       },
+      "Pipelines.Sockets.Unofficial/2.2.8": {
+        "type": "package",
+        "dependencies": {
+          "System.IO.Pipelines": "5.0.1"
+        },
+        "compile": {
+          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "StackExchange.Redis/2.8.24": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.0",
+          "Pipelines.Sockets.Unofficial": "2.2.8"
+        },
+        "compile": {
+          "lib/net8.0/StackExchange.Redis.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/StackExchange.Redis.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "System.CodeDom/4.4.0": {
         "type": "package",
         "compile": {
@@ -774,7 +807,7 @@
       "System.IO.Pipelines/6.0.3": {
         "type": "package",
         "compile": {
-          "lib/net6.0/_._": {
+          "lib/net6.0/System.IO.Pipelines.dll": {
             "related": ".xml"
           }
         },
@@ -1915,6 +1948,52 @@
         "postgresql.png"
       ]
     },
+    "Pipelines.Sockets.Unofficial/2.2.8": {
+      "sha512": "zG2FApP5zxSx6OcdJQLbZDk2AVlN2BNQD6MorwIfV6gVj0RRxWPEp2LXAxqDGZqeNV1Zp0BNPcNaey/GXmTdvQ==",
+      "type": "package",
+      "path": "pipelines.sockets.unofficial/2.2.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/Pipelines.Sockets.Unofficial.dll",
+        "lib/net461/Pipelines.Sockets.Unofficial.xml",
+        "lib/net472/Pipelines.Sockets.Unofficial.dll",
+        "lib/net472/Pipelines.Sockets.Unofficial.xml",
+        "lib/net5.0/Pipelines.Sockets.Unofficial.dll",
+        "lib/net5.0/Pipelines.Sockets.Unofficial.xml",
+        "lib/netcoreapp3.1/Pipelines.Sockets.Unofficial.dll",
+        "lib/netcoreapp3.1/Pipelines.Sockets.Unofficial.xml",
+        "lib/netstandard2.0/Pipelines.Sockets.Unofficial.dll",
+        "lib/netstandard2.0/Pipelines.Sockets.Unofficial.xml",
+        "lib/netstandard2.1/Pipelines.Sockets.Unofficial.dll",
+        "lib/netstandard2.1/Pipelines.Sockets.Unofficial.xml",
+        "pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+        "pipelines.sockets.unofficial.nuspec"
+      ]
+    },
+    "StackExchange.Redis/2.8.24": {
+      "sha512": "GWllmsFAtLyhm4C47cOCipGxyEi1NQWTFUHXnJ8hiHOsK/bH3T5eLkWPVW+LRL6jDiB3g3izW3YEHgLuPoJSyA==",
+      "type": "package",
+      "path": "stackexchange.redis/2.8.24",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/StackExchange.Redis.dll",
+        "lib/net461/StackExchange.Redis.xml",
+        "lib/net472/StackExchange.Redis.dll",
+        "lib/net472/StackExchange.Redis.xml",
+        "lib/net6.0/StackExchange.Redis.dll",
+        "lib/net6.0/StackExchange.Redis.xml",
+        "lib/net8.0/StackExchange.Redis.dll",
+        "lib/net8.0/StackExchange.Redis.xml",
+        "lib/netcoreapp3.1/StackExchange.Redis.dll",
+        "lib/netcoreapp3.1/StackExchange.Redis.xml",
+        "lib/netstandard2.0/StackExchange.Redis.dll",
+        "lib/netstandard2.0/StackExchange.Redis.xml",
+        "stackexchange.redis.2.8.24.nupkg.sha512",
+        "stackexchange.redis.nuspec"
+      ]
+    },
     "System.CodeDom/4.4.0": {
       "sha512": "2sCCb7doXEwtYAbqzbF/8UAeDRMNmPaQbU2q50Psg1J9KzumyVVCgKQY8s53WIPTufNT0DpSe9QRvVjOzfDWBA==",
       "type": "package",
@@ -2243,7 +2322,8 @@
       "Microsoft.EntityFrameworkCore >= 8.0.11",
       "Microsoft.EntityFrameworkCore.Relational >= 8.0.11",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.11",
-      "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.0"
+      "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.0",
+      "StackExchange.Redis >= 2.8.24"
     ]
   },
   "packageFolders": {
@@ -2252,11 +2332,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Infraestructure/AnimalProtection.Infraestructure.csproj",
+      "projectUniqueName": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Infraestructure/AnimalProtection.Infraestructure.csproj",
       "projectName": "AnimalProtection.Infraestructure",
-      "projectPath": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Infraestructure/AnimalProtection.Infraestructure.csproj",
+      "projectPath": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Infraestructure/AnimalProtection.Infraestructure.csproj",
       "packagesPath": "/Users/edison.sanchez/.nuget/packages/",
-      "outputPath": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Infraestructure/obj/",
+      "outputPath": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Infraestructure/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/edison.sanchez/.nuget/NuGet/NuGet.Config"
@@ -2272,8 +2352,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj": {
-              "projectPath": "/Users/edison.sanchez/Documents/Me/Testing/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj"
+            "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj": {
+              "projectPath": "/Users/edison.sanchez/Documents/Me/Net/vinculacion-back/AnimalProtecction/AnimalProtection.Domain/AnimalProtection.Domain.csproj"
             }
           }
         }
@@ -2309,6 +2389,10 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
             "version": "[8.0.0, )"
+          },
+          "StackExchange.Redis": {
+            "target": "Package",
+            "version": "[2.8.24, )"
           }
         },
         "imports": [

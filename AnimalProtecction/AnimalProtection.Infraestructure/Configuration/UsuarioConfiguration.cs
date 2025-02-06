@@ -2,7 +2,7 @@ using AnimalProtecction.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace AnimalProtecction.Generated.Configuration;
+namespace AnimalProtecction.Configuration;
 
     public class UsuarioConfiguration : IEntityTypeConfiguration<Usuario>
     {

@@ -6,7 +6,6 @@ namespace AnimalProtection.Api.Controller;
 [ApiVersion("1.0")]
 [ApiController]
 [Route("api/v{version:apiVersion}/usuarios")]
-//[ApiExplorerSettings(GroupName = "UsuarioV1")]
 public class UsuarioController : ControllerBase
 { 
     private readonly IUsuarioQueryService _usuarioQueryService;

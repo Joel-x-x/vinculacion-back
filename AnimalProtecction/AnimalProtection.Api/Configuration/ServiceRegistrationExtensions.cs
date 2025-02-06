@@ -1,4 +1,4 @@
-using System.Reflection;
+using AnimalProtection.Application.Commands.Token;
 using AnimalProtection.Application.Querys.Interface;
 using AnimalProtection.Application.Querys.Service;
 using Autofac;
@@ -12,5 +12,10 @@ public  class ApplicationModule: Module
     {
         builder.RegisterType<UsuarioQueryService>()
             .As<IUsuarioQueryService>();
+        
+        builder.RegisterType<TokenService>()
+            .As<ITokenService>();
+        
+       
     }
 }
