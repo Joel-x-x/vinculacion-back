@@ -8,7 +8,7 @@ public class PreguntasFrecuentes
     
     public string Respuesta { get; set; }
     
-    public int Prioridad { get; set; }
+    public int? Prioridad { get; set; }
     
     public bool EstaActivo { get; set; }
 }

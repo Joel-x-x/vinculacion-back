@@ -18,8 +18,15 @@ public class DatosInstitucion
     
     public string Vision { get; set; }
     
-    public bool EstaActivo { get; set; }
+    public string ColorPrincipal { get; set; }
+
+    public string ColorSecundario { get; set; }
+
+    public Guid? IdArchivoLogo { get; set; }
     
+    public bool EstaActivo { get; set; }
+
+
     // Virtuals
     public virtual ICollection<RedesSociales> RedesSociales { get; set; }
 }

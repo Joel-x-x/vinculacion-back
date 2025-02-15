@@ -35,6 +35,12 @@ public partial class AnimalprotectionContext : DbContext
     public virtual DbSet<PreguntasChat> PreguntasChats { get; set; }
     
     public virtual DbSet<RespuestasChat> RespuestasChats { get; set; }
+    
+    public virtual DbSet<TiposCampana> TiposCampana { get; set; }
+    
+    public virtual DbSet<Campanas> Campanas { get; set; }
+    
+    public virtual DbSet<ArchivosCampana> ArchivosCampana { get; set; }
 
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
