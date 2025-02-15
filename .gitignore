@@ -1,11 +1,16 @@
+# Ignore IDE settings
 .idea/
+.idea_modules/
 .idea/**
 *.sln.iml
+*.iml
+*.ipr
+*.iws
 
 # Ignore build outputs
-bin/
-obj/
-out/
+**/bin/
+**/obj/
+**/out/
 
 # Ignore user-specific files
 *.user
@@ -16,6 +21,8 @@ out/
 # Ignore package dependencies
 packages/
 .nuget/
+*.nupkg
+**/project.lock.json
 
 # Ignore logs and other runtime files
 *.log
@@ -29,16 +36,7 @@ packages/
 *.generated.cs
 
 # Ignore Rider workspace files
-.idea/
-.idea_modules/
-.idea/*
-*.iml
-*.ipr
-*.iws
-
-# Ignore local NuGet packages 
-*.nupkg
-**/project.lock.json
+*.rider/
 
 # Ignore Resharper files
 *.DotSettings.user
