@@ -22,7 +22,7 @@ public partial class Usuario
     public bool Estado { get; set; }
 
     public string? Foto { get; set; }
-
+ 
     public DateTime Fechacreacion { get; set; }
 
     public DateTime? Fechaactualizacion { get; set; }
