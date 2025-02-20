@@ -8,7 +8,7 @@ public record UsuarioDto(
      string Identificacion,
      string Contacto ,
      string Email,
-     bool? Estado);
+     bool? Estado); 
      
 public record UsuarioEmailDto(
     Guid Id,
