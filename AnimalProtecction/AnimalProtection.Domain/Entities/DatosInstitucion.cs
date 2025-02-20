@@ -1,5 +1,4 @@
-namespace AnimalProtecction.Domain.Entities;
-
+﻿namespace AnimalProtection.Domain.Entities;
 public class DatosInstitucion
 {
     public Guid Id { get; set; }
@@ -28,5 +27,5 @@ public class DatosInstitucion
 
 
     // Virtuals
-    public virtual ICollection<RedesSociales> RedesSociales { get; set; }
+    public virtual ICollection<RedesSociales> ReedesSociales { get; set; }
 }

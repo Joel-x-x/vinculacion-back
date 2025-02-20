@@ -28,7 +28,7 @@ public class UsuarioQueryService: IUsuarioQueryService
                 u.Identificacion,
                 u.Contacto,
                 u.Email,
-                u.Estado
+                u.Estaactivo
             )).ToList();
             return ResultResponse<List<UsuarioDto>>.Success(usuariosDto);
         }

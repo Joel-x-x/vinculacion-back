@@ -1,9 +1,9 @@
-using AnimalProtecction.Domain.Entities;
 using AnimalProtecction.GenericRepository;
+using AnimalProtection.Domain.Entities;
 
 namespace AnimalProtecction.Generated.Repositories.Interface;
 
-public interface IRespuestasChatRepository : IGenericRepository<RespuestasChat>
+public interface IRespuestasChatRepository : IGenericRepository<Respuestaschat>
 {
     
 }

@@ -1,4 +1,4 @@
-using AnimalProtecction.Domain.Entities;
+using AnimalProtection.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -29,9 +29,9 @@ namespace AnimalProtecction.Configuration;
                 .HasForeignKey(d => d.RolId)
                 .HasConstraintName("fk_rol");
 
-            entity.HasOne(d => d.Usuario)
-                .WithMany(p => p.RoleUsuarios)
-                .HasForeignKey(d => d.UsuarioId)
-                .HasConstraintName("fk_usuario");
+            // entity.HasOne(d => d.Usuario)
+            //     .WithMany(p => p.RoleUsuarios)
+            //     .HasForeignKey(d => d.UsuarioId)
+            //     .HasConstraintName("fk_usuario");
         }
     }

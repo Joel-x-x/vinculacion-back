@@ -1,4 +1,4 @@
-namespace AnimalProtecction.Domain.Entities;
+namespace AnimalProtection.Domain.Entities;
 
 public class PreguntasFrecuentes
 {

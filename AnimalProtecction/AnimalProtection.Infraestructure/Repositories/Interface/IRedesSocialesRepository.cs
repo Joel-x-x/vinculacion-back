@@ -1,4 +1,4 @@
-using AnimalProtecction.Domain.Entities;
+using AnimalProtection.Domain.Entities;
 using AnimalProtecction.GenericRepository;
 
 namespace AnimalProtecction.Generated.Repositories.Interface;

@@ -1,15 +1,14 @@
-namespace AnimalProtecction.Domain.Entities;
+﻿namespace AnimalProtection.Domain.Entities;
 
-public class RespuestasChat
+public partial class Respuestaschat
 {
     public Guid Id { get; set; }
-    
-    public string Respuesta { get; set; }
-    
-    public bool EstaActivo { get; set; }
-    
-    public Guid IdPregunta { get; set; }
-    
-    // Virtuals
-    public virtual PreguntasChat PreguntasChat { get; set; }
+
+    public string Respuesta { get; set; } = null!;
+
+    public Guid Idpregunta { get; set; }
+
+    public bool? Estaactivo { get; set; }
+
+    public virtual Preguntaschat IdpreguntaNavigation { get; set; } = null!;
 }

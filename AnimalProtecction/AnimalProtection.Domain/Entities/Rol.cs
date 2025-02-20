@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AnimalProtecction.Domain.Entities;
+﻿namespace AnimalProtection.Domain.Entities;
 
 public partial class Rol
 {
