@@ -35,7 +35,6 @@ public class UsuarioConfiguration: IEntityTypeConfiguration<Usuario>
         entity.Property(e => e.Identificacion)
             .HasMaxLength(20)
             .HasColumnName("identificacion");
-        entity.Property(e => e.Idrol).HasColumnName("idrol");
         entity.Property(e => e.Nick)
             .HasMaxLength(20)
             .HasColumnName("nick");
@@ -46,10 +45,5 @@ public class UsuarioConfiguration: IEntityTypeConfiguration<Usuario>
             .HasMaxLength(4)
             .IsFixedLength()
             .HasColumnName("pin");
-
-        entity.HasOne(d => d.IdrolNavigation).WithMany(p => p.Usuarios)
-            .HasForeignKey(d => d.Idrol)
-            .OnDelete(DeleteBehavior.ClientSetNull)
-            .HasConstraintName("fk_rolusuario");
     }
 }

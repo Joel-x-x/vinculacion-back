@@ -12,5 +12,5 @@ public partial class Menusrol
 
     public virtual Menu IdmenuNavigation { get; set; } = null!;
 
-    public virtual Role IdrolNavigation { get; set; } = null!;
+    public virtual Rol IdrolNavigation { get; set; } = null!;
 }
