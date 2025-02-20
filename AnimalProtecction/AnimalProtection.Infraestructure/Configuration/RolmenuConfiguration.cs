@@ -1,4 +1,4 @@
-using AnimalProtecction.Domain.Entities;
+using AnimalProtection.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -24,9 +24,9 @@ namespace AnimalProtecction.Configuration;
             entity.Property(e => e.MenuId).HasColumnName("menu_id");
             entity.Property(e => e.RolId).HasColumnName("rol_id");
 
-            entity.HasOne(d => d.Menu).WithMany(p => p.Rolmenus)
-                .HasForeignKey(d => d.MenuId)
-                .HasConstraintName("fk_menu");
+            // entity.HasOne(d => d.Menu).WithMany(p => p.Rolmenus)
+            //     .HasForeignKey(d => d.MenuId)
+            //     .HasConstraintName("fk_menu");
 
             entity.HasOne(d => d.Rol)
                 .WithMany(p => p.Rolmenus)

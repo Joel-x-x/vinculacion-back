@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace AnimalProtecction.Domain.Entities;
+﻿namespace AnimalProtection.Domain.Entities;
 
 public partial class Menu
 {
@@ -9,13 +6,11 @@ public partial class Menu
 
     public string Nombre { get; set; } = null!;
 
-    public string? Descripcion { get; set; }
+    public string Descripcion { get; set; } = null!;
 
-    public string Ruta { get; set; } = null!;
+    public string Link { get; set; } = null!;
 
-    public string? Icono { get; set; }
+    public bool? Estaactivo { get; set; }
 
-    public bool? Activo { get; set; }
-
-    public virtual ICollection<Rolmenu> Rolmenus { get; set; } = new List<Rolmenu>();
+    public virtual ICollection<Menusrol> Menusrols { get; set; } = new List<Menusrol>();
 }

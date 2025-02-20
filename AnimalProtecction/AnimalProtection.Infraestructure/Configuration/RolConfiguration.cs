@@ -1,4 +1,4 @@
-using AnimalProtecction.Domain.Entities;
+using AnimalProtection.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

@@ -1,39 +1,31 @@
-using AnimalProtecction.Domain.Entities;
+using AnimalProtection.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AnimalProtecction.Configuration;
 
-public class RespuestasChatConfiguration : IEntityTypeConfiguration<RespuestasChat>
+public class RespuestaschatConfiguration: IEntityTypeConfiguration<Respuestaschat>
 {
-    public void Configure(EntityTypeBuilder<RespuestasChat> entity)
+    public void Configure(EntityTypeBuilder<Respuestaschat> entity)
     {
-        entity.ToTable("respuestaschat");
-
         entity.HasKey(e => e.Id).HasName("respuestaschat_pkey");
+
+        entity.ToTable("respuestaschat");
 
         entity.Property(e => e.Id)
             .HasDefaultValueSql("gen_random_uuid()")
             .HasColumnName("id");
-
-        entity.Property(e => e.Respuesta)
-            .HasMaxLength(200)
-            .IsRequired()
-            .HasColumnName("respuesta");
-
-        entity.Property(e => e.IdPregunta)
-            .IsRequired()
-            .HasColumnName("idpregunta");
-
-        entity.Property(e => e.EstaActivo)
+        entity.Property(e => e.Estaactivo)
             .HasDefaultValue(true)
             .HasColumnName("estaactivo");
+        entity.Property(e => e.Idpregunta).HasColumnName("idpregunta");
+        entity.Property(e => e.Respuesta)
+            .HasMaxLength(200)
+            .HasColumnName("respuesta");
 
-        // Relación con PreguntasChat
-        entity.HasOne(e => e.PreguntasChat)
-            .WithMany() // Si `PreguntasChat` tiene `public List<RespuestasChat> Respuestas`, aquí pon `.WithMany(p => p.Respuestas)`
-            .HasForeignKey(e => e.IdPregunta)
-            .OnDelete(DeleteBehavior.Cascade)
+        entity.HasOne(d => d.IdpreguntaNavigation).WithMany(p => p.Respuestaschats)
+            .HasForeignKey(d => d.Idpregunta)
+            .OnDelete(DeleteBehavior.ClientSetNull)
             .HasConstraintName("fk_preguntaschat");
     }
 }

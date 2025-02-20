@@ -1,13 +1,16 @@
-namespace AnimalProtecction.Domain.Entities;
+﻿namespace AnimalProtection.Domain.Entities;
 
-public class ArchivosCampana
+public partial class Archivoscampana
 {
     public Guid Id { get; set; }
-    public Guid IdArchivo { get; set; }
-    public string Descripcion { get; set; }
-    public Guid IdCampana { get; set; }
-    public bool EstaActivo { get; set; } = true;
 
-    // Relación con Campanas
-    public Campanas Campana { get; set; }
+    public Guid Idarchivo { get; set; }
+
+    public string Descripcion { get; set; } = null!;
+
+    public Guid Idcampana { get; set; }
+
+    public bool? Estaactivo { get; set; }
+
+    public virtual Campana IdcampanaNavigation { get; set; } = null!;
 }

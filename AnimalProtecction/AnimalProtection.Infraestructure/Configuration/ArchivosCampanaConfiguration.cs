@@ -1,43 +1,32 @@
-using AnimalProtecction.Domain.Entities;
+using AnimalProtection.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AnimalProtecction.Configuration;
 
-public class ArchivosCampanaConfiguration : IEntityTypeConfiguration<ArchivosCampana>
-{
-    public void Configure(EntityTypeBuilder<ArchivosCampana> entity)
-    {
-        entity.ToTable("archivoscampana");
+    public class ArchivoscampanaConfiguration : IEntityTypeConfiguration<Archivoscampana>
+    { 
+        public void Configure(EntityTypeBuilder<Archivoscampana> entity)
+        {
+            entity.HasKey(e => e.Id).HasName("archivoscampana_pkey");
 
-        entity.HasKey(e => e.Id).HasName("archivoscampana_pkey");
+            entity.ToTable("archivoscampana");
 
-        entity.Property(e => e.Id)
-            .HasDefaultValueSql("gen_random_uuid()")
-            .HasColumnName("id");
+            entity.Property(e => e.Id)
+                .HasDefaultValueSql("gen_random_uuid()")
+                .HasColumnName("id");
+            entity.Property(e => e.Descripcion)
+                .HasMaxLength(200)
+                .HasColumnName("descripcion");
+            entity.Property(e => e.Estaactivo)
+                .HasDefaultValue(true)
+                .HasColumnName("estaactivo");
+            entity.Property(e => e.Idarchivo).HasColumnName("idarchivo");
+            entity.Property(e => e.Idcampana).HasColumnName("idcampana");
 
-        entity.Property(e => e.IdArchivo)
-            .IsRequired()
-            .HasColumnName("idarchivo");
-
-        entity.Property(e => e.Descripcion)
-            .HasMaxLength(200)
-            .IsRequired()
-            .HasColumnName("descripcion");
-
-        entity.Property(e => e.IdCampana)
-            .IsRequired()
-            .HasColumnName("idcampana");
-
-        entity.Property(e => e.EstaActivo)
-            .HasDefaultValue(true)
-            .HasColumnName("estaactivo");
-
-        // Relación con Campanas
-        entity.HasOne(e => e.Campana)
-            .WithMany()
-            .HasForeignKey(e => e.IdCampana)
-            .OnDelete(DeleteBehavior.Cascade)
-            .HasConstraintName("fk_archivocampana");
+            entity.HasOne(d => d.IdcampanaNavigation).WithMany(p => p.Archivoscampanas)
+                .HasForeignKey(d => d.Idcampana)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_archivocampana");
+        }
     }
-}

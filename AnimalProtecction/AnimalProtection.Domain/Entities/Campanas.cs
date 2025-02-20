@@ -1,4 +1,4 @@
-namespace AnimalProtecction.Domain.Entities;
+namespace AnimalProtection.Domain.Entities;
 
 public class Campanas
 {
@@ -11,5 +11,5 @@ public class Campanas
     public bool EstaActivo { get; set; } = true;
 
     // Relación con TiposCampana
-    public TiposCampana TipoCampana { get; set; }
+    public Tiposcampana TipoCampana { get; set; }
 }
