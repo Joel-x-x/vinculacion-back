@@ -10,5 +10,9 @@ public class Cooperantes
     
     public string Descricpion { get; set; }
     
+    public string ColorSecundario { get; set; }
+    
+    public Guid? IdArchivoLogo { get; set; }
+
     public bool EstaActivo { get; set; }
 }
