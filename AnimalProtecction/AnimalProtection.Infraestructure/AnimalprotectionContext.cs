@@ -58,7 +58,7 @@ public partial class AnimalprotectionContext : DbContext
 
     public virtual DbSet<Respuestaschat> Respuestaschats { get; set; }
 
-    public virtual DbSet<Role> Roles { get; set; }
+    public virtual DbSet<Rol> Roles { get; set; }
 
     public virtual DbSet<Tiposarchivo> Tiposarchivos { get; set; }
 

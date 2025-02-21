@@ -4,16 +4,16 @@ public partial class Rol
 {
     public Guid Id { get; set; }
 
-    public string? Rol1 { get; set; }
+    public string Nombre { get; set; } = null!;
 
-    public bool? Estado { get; set; }
+    public string? Descripcion { get; set; }
 
-    public DateTime? Fechacreacion { get; set; }
+    public bool? Esadministrador { get; set; }
 
-    public DateTime? Fechamodificacion { get; set; }
-    
-    public virtual ICollection<Rolmenu> Rolmenus { get; set; } = new List<Rolmenu>();
-    public virtual ICollection<RoleUsuario> RoleUsuarios { get; set; } = new List<RoleUsuario>();
+    public bool? Estaactivo { get; set; }
 
+    public virtual ICollection<Menusrol> MenusRoles { get; set; } = new List<Menusrol>();
+
+    public virtual ICollection<UsuarioRol> UsuariosRoles { get; set; } = new List<UsuarioRol>();
 
 }

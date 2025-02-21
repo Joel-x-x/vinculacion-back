@@ -6,6 +6,8 @@
 *.iml
 *.ipr
 *.iws
+*.dll
+*.pdb
 
 # Ignore build outputs
 **/bin/

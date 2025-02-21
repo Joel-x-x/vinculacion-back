@@ -22,17 +22,13 @@ public partial class Usuario
 
     public string? Idarchivoperfil { get; set; }
 
-    public Guid Idrol { get; set; }
-
     public bool? Estaactivo { get; set; }
 
     public virtual ICollection<Datosrecuperacion> Datosrecuperacions { get; set; } = new List<Datosrecuperacion>();
 
     public virtual ICollection<Hash> Hashes { get; set; } = new List<Hash>();
 
-    public virtual Role IdrolNavigation { get; set; } = null!;
-
     public virtual ICollection<Log> Logs { get; set; } = new List<Log>();
-    public virtual ICollection<UsuarioRol> RolesUsuario { get; set; } = new List<UsuarioRol>();
+    public virtual ICollection<UsuarioRol> UsuariosRoles { get; set; } = new List<UsuarioRol>();
 
 }

@@ -26,7 +26,7 @@ public class MenurolConfiguration :IEntityTypeConfiguration<Menusrol>
             .OnDelete(DeleteBehavior.ClientSetNull)
             .HasConstraintName("fk_menurol");
 
-        entity.HasOne(d => d.IdrolNavigation).WithMany(p => p.Menusrols)
+        entity.HasOne(d => d.IdrolNavigation).WithMany(p => p.MenusRoles)
             .HasForeignKey(d => d.Idrol)
             .OnDelete(DeleteBehavior.ClientSetNull)
             .HasConstraintName("fk_rolmenu");
