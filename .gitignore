@@ -1,0 +1,105 @@
+# Archivos de compilación y salida
+bin/
+obj/
+out/
+*.exe
+*.dll
+*.pdb
+*.exe.config
+*.cache
+*.manifest
+
+# Archivos de configuración de usuario de Visual Studio y JetBrains Rider
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.vs/
+
+# Archivos de configuración y secretos
+appsettings*.json
+!appsettings.json # Excluye el archivo base si quieres versionarlo
+secrets.json
+*.log
+logs/
+logs/**/*
+*.ncrunch*
+*.cache
+*.pidb
+*.psess
+*.pyc
+
+# Archivos temporales y de publicación
+*.Publish.xml
+*.tmp
+*.bak
+*.swp
+*.swo
+*.DS_Store
+
+# Dependencias de NuGet y lockfiles
+project.lock.json
+global.json
+.nuget/
+packages/
+!packages/build/
+
+# Configuración de entorno y archivos sensibles
+.env
+*.env.local
+*.env.development
+*.env.production
+*.env.testing
+
+# Archivos de Test y cobertura de código
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+*.codecov
+
+# Configuración de Docker y contenedores
+**/[Dd]ockerfile
+**/docker-compose*.yml
+**/.dockerignore
+
+# Configuración de Rider y JetBrains
+.idea/
+*.iml
+out/
+
+# Archivos generados por el depurador de Visual Studio
+*.tlog
+*.pgstate
+*.ilk
+*.iobj
+*.ipdb
+*.opendb
+
+# Certificados SSL locales
+localhost.pfx
+localhost.crt
+localhost.key
+
+# Configuración de SSH y deploy
+.ssh/
+*.pem
+*.pub
+*.key
+*.crt
+
+# Archivos de configuración de dependencias específicas
+obj/
+bin/
+node_modules/
+dist/
+wwwroot/
+wwwroot/lib/
+
+# Evitar que archivos de CI/CD no deseados se suban
+.gitlab-ci.yml
+.circleci/
+.github/
+.azure-pipelines.yml
