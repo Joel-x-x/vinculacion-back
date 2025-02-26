@@ -10,11 +10,20 @@
         "dependencies": {
           "AnimalProtection.Domain": "1.0.0",
           "AnimalProtection.Infraestructure": "1.0.0",
+          "EntityFrameworkCore.Paginate": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": "5.1.0",
           "System.IdentityModel.Tokens.Jwt": "8.3.1"
         },
         "runtime": {
           "AnimalProtection.Application.dll": {}
+        }
+      },
+      "EntityFrameworkCore.Paginate/1.0.0": {
+        "runtime": {
+          "lib/EntityFrameworkCore.Paginate.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Microsoft.AspNetCore.Mvc.Versioning/5.1.0": {
@@ -266,6 +275,7 @@
       "System.IO.Pipelines/5.0.1": {},
       "AnimalProtection.Domain/1.0.0": {
         "dependencies": {
+          "EntityFrameworkCore.Paginate": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": "5.1.0"
         },
         "runtime": {
@@ -278,6 +288,7 @@
       "AnimalProtection.Infraestructure/1.0.0": {
         "dependencies": {
           "AnimalProtection.Domain": "1.0.0",
+          "EntityFrameworkCore.Paginate": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": "5.1.0",
           "Microsoft.EntityFrameworkCore": "8.0.11",
           "Microsoft.EntityFrameworkCore.Relational": "8.0.11",
@@ -298,6 +309,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "EntityFrameworkCore.Paginate/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NVZl8Xkv6v7s5c1VBRq0cf0Bw9UZ4fSA918iSQuSxJQCYAeysAUV+1XaJKfXDuG7ijWqAlKjty+eto1K0txyOA==",
+      "path": "entityframeworkcore.paginate/1.0.0",
+      "hashPath": "entityframeworkcore.paginate.1.0.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Mvc.Versioning/5.1.0": {
       "type": "package",
