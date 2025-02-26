@@ -1,6 +1,7 @@
 using AnimalProtecction.Generated.Repositories.Interface;
 using AnimalProtecction.Generated.Repositories.Repository;
 using AnimalProtecction.GenericRepository;
+using AnimalProtection.Repositories.Repository;
 using Autofac;
 
 namespace AnimalProtection.Api.Configuration;
@@ -15,5 +16,8 @@ public class InfrastructureModule: Module
         
         builder.RegisterType<UsuarioRepository>()
             .As<IUsuarioRepository>();
+        
+        builder.RegisterType<TramiteRepository>()
+            .As<ITramiteRepository>();
     }
 }

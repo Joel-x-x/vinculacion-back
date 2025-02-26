@@ -16,6 +16,7 @@ public  class ApplicationModule: Module
         builder.RegisterType<TokenService>()
             .As<ITokenService>();
         
-       
+       builder.RegisterType<TramiteQueryService>()
+            .As<ITramiteQueryService>();
     }
 }

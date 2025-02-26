@@ -71,6 +71,19 @@ builder.Services.AddSwaggerGen(options =>
 
 // Configurar controladores
 builder.Services.AddControllers();
+
+// TODO: Corregir no se estan mostrando correctamente los caracteres especiales
+// builder.Services.AddControllers()
+//     .AddJsonOptions(options =>
+//     {
+//         options.JsonSerializerOptions.Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+//         options.JsonSerializerOptions.PropertyNamingPolicy = null; // Evita que los nombres de las propiedades se serialicen en camelCase
+//     });
+// builder.Services.AddDbContext<AnimalprotectionContext>(options =>
+//     options.UseNpgsql(connectionString, x => x.EnableRetryOnFailure())
+//         .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+// );
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {

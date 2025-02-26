@@ -35,15 +35,7 @@ public class TramiteQueryService : ITramiteQueryService
             .ToListAsync();
 
         // Mapear Tramite a TramiteRecord
-        List<TramiteRecord> tramiteRecords = pagedResult.Select(t => new TramiteRecord(
-            t.Id, t.Nombre, t.Apellido, t.Email, t.Contacto ?? "",
-            t.Datos ?? "", t.Fecha, t.Numerotramite, t.Direccion ?? "",
-            t.Idtipotramite, t.Idestadotramite, t.Estaactivo ?? false,
-            new TipoTramiteRecord(t.Idtipotramite, t.IdtipotramiteNavigation?.Nombre ?? "", t.IdtipotramiteNavigation?.Estaactivo ?? false),
-            new EstadostramiteRecord(t.Idestadotramite, t.IdestadotramiteNavigation?.Nombre ?? "", t.IdestadotramiteNavigation?.Orden ?? 0, t.IdestadotramiteNavigation?.Estaactivo ?? false),
-            t.Archivostramites?.Select(a => new ArchivostramiteRecord(a.Id, a.Idarchivo, a.Descripcion, a.Idtramite, a.Estaactivo)).ToList() ?? new List<ArchivostramiteRecord>()
-        )).ToList();
-
+        List<TramiteRecord> tramiteRecords = pagedResult.Select(t => new TramiteRecord(t)).ToList();
         PagedResponseRecord<TramiteRecord> response = new PagedResponseRecord<TramiteRecord>(
             tramiteRecords, pageNumber, pageSize, totalRecords, 
             (int)Math.Ceiling((double)totalRecords / pageSize)
@@ -52,25 +44,69 @@ public class TramiteQueryService : ITramiteQueryService
         return ResultResponse<PagedResponseRecord<TramiteRecord>>.Success(response);
     }
 
-
-
-    public Task<TramiteRecord> GetTramiteById(Guid id)
+    public async Task<ResultResponse<TramiteRecord>> GetTramiteById<T>(Guid id)
     {
-        throw new NotImplementedException();
+        var tramite = await _tramiteRepository.GetByIdAsync(id);
+        
+        if (tramite  == null)
+        {
+            return ResultResponse<TramiteRecord>.Failure($"No se encontró el trámite con el id: {id}", 404);
+        }
+
+        TramiteRecord tramiteRecord = new TramiteRecord(tramite);
+        
+        return ResultResponse<TramiteRecord>.Success(tramiteRecord);
     }
 
-    public Task<TramiteCreateRecord> CreateTramite(TramiteCreateRecord tramiteCreateRecord)
+    public async Task<ResultResponse<TramiteCreateRecord>> CreateTramite(TramiteCreateRecord tramiteCreateRecord)
     {
-        throw new NotImplementedException();
+        // TODO: Validar los datos del trámite
+        if (tramiteCreateRecord == null)
+        {
+            return ResultResponse<TramiteCreateRecord>.Failure("Los datos del trámite son inválidos", 400);
+        }
+
+        // Crear una nueva instancia de Tramite usando el método de fábrica
+        var tramite = Tramite.CreateFromRecord(tramiteCreateRecord);
+
+        // Guardar el trámite en la base de datos
+        await _tramiteRepository.AddAsync(tramite);
+        await _tramiteRepository.SaveAsync();
+
+        // Devolver el trámite creado como respuesta
+        return ResultResponse<TramiteCreateRecord>.Success(tramiteCreateRecord, 201);
     }
 
-    public Task<TramiteUpdateRecord> UpdateTramite(TramiteUpdateRecord tramiteUpdateRecord)
+    public async Task<ResultResponse<TramiteUpdateRecord>> UpdateTramite(TramiteUpdateRecord tramiteUpdateRecord)
     {
-        throw new NotImplementedException();
+        // TODO: Validar los datos del trámite
+        var tramite = await _tramiteRepository.GetByIdAsync(tramiteUpdateRecord.Id);
+
+        if (tramite == null)
+        {
+            return ResultResponse<TramiteUpdateRecord>.Failure($"No se encontró el trámite con el id: {tramiteUpdateRecord.Id}", 404);
+        }
+        
+        tramite.UpdateFromRecord(tramiteUpdateRecord);
+        
+        await _tramiteRepository.UpdateAsync(tramite);
+        
+        return ResultResponse<TramiteUpdateRecord>.Success(tramiteUpdateRecord, 200);
     }
 
-    public Task<bool> DeleteTramite(Guid id)
+    public async Task<ResultResponse<bool>> DeleteTramite(Guid id)
     {
-        throw new NotImplementedException();
+        var tramite = await _tramiteRepository.GetByIdAsync(id);
+        
+        if (tramite == null)
+        {
+            return ResultResponse<bool>.Failure($"No se encontró el trámite con el id: {id}", 404);
+        }
+
+        tramite.eliminar();
+        
+        await _tramiteRepository.UpdateAsync(tramite);
+        
+        return ResultResponse<bool>.Success(true, 200);
     }
 }

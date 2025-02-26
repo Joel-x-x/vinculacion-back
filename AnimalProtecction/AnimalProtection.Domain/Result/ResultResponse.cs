@@ -25,7 +25,7 @@ public class ResultResponse<T>
 
     public static ResultResponse<T> Failure(T value, string error, int code = 500) =>
         new(value, false, error, code);
-    
+
 
 
 }
