@@ -3,6 +3,7 @@ namespace AnimalProtecction.GenericRepository;
 public interface IGenericRepository<T> where T : class
 {
         Task<IEnumerable<T>> GetAllAsync();
+        IQueryable<T> GetPageableAsync();
         Task<T> GetByIdAsync(object id);
         Task AddAsync(T entity);
         Task UpdateAsync(T entity);
