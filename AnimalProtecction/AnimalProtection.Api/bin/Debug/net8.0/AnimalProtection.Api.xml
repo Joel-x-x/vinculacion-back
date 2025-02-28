@@ -4,6 +4,45 @@
         <name>AnimalProtection.Api</name>
     </assembly>
     <members>
+        <member name="M:AnimalProtection.Api.Controller.CooperantesController.GetAllCooperantes(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de trámites.
+            </summary>
+            <param name="pageNumber">Número de página.</param>
+            <param name="pageSize">Tamaño de página.</param>
+            <returns>Una lista paginada de cooperantes.</returns>
+            <response code="200">Devuelve la lista de cooperants paginados.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran cooperantes.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.CooperantesController.GetCooperanteById(System.Guid)">
+            <summary>
+            Obtiene un cooperante por su ID.
+            </summary>
+            <param name="id">ID del cooperante.</param>
+            <returns>El cooperante correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.CooperantesController.CreateCooperante(AnimalProtection.Domain.Dto.CooperantesCreateRecord)">
+            <summary>
+            Crea un nuevo cooperante.
+            </summary>
+            <param name="cooperantesCreateRecord">Datos del cooperante a crear.</param>
+            <returns>El cooperante creado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.CooperantesController.UpdateCooperante(AnimalProtection.Domain.Dto.CooperantesUpdateRecord)">
+            <summary>
+            Actualiza un cooperante existente.
+            </summary>
+            <param name="cooperantesUpdateRecord">Datos actualizados del cooperante.</param>
+            <returns>El cooperante actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.CooperantesController.DeleteCooperante(System.Guid)">
+            <summary>
+            Elimina un cooperante por su ID.
+            </summary>
+            <param name="id">ID del cooperante a eliminar.</param>
+            <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
+        </member>
         <member name="M:AnimalProtection.Api.Controller.TramiteController.GetAllTramites(System.Int32,System.Int32)">
             <summary>
             Obtiene una lista paginada de trámites.

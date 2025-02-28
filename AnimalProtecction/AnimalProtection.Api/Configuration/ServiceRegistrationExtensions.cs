@@ -12,14 +12,23 @@ public  class ApplicationModule: Module
     {
         builder.RegisterType<UsuarioQueryService>()
             .As<IUsuarioQueryService>();
-        
+
         builder.RegisterType<TokenService>()
             .As<ITokenService>();
+<<<<<<< HEAD
         
        builder.RegisterType<TramiteQueryService>()
             .As<ITramiteQueryService>();
 
         builder.RegisterType<DatosInstitucionService>()
             .As<IDatosInstitucionService>();
+=======
+
+        builder.RegisterType<TramiteQueryService>()
+                .As<ITramiteQueryService>();
+
+        builder.RegisterType<CooperantesQueryService>()
+            .As<ICooperantesQueryService>();
+>>>>>>> 2c532b162d487455daae51f0e3fd093519d91b16
     }
 }
