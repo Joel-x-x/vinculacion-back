@@ -21,7 +21,7 @@ public class CooperantesQueryService : ICooperantesQueryService
     public async Task<ResultResponse<PagedResponseRecord<CooperantesRecord>>> GetAllCooperantes(int pageNumber, int pageSize)
     {
         IQueryable<Cooperantes> query = _cooperantesRepository.GetPageableAsync()
-        .Where(t => t.Estaactivo == true);
+        .Where(t => t.EstaActivo == true);
 
         int totalRecords = await query.CountAsync();
 

@@ -13,7 +13,6 @@ public record CooperantesRecord(
 {
     public CooperantesRecord(Cooperantes cooperante) : this (
         cooperante.Id,
-        cooperante.UrlLogo,
         cooperante.Nombre,
         cooperante.Descripcion,
         cooperante.ColorSecundario,
