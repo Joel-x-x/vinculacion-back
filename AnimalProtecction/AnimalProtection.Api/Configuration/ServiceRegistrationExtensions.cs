@@ -18,5 +18,8 @@ public  class ApplicationModule: Module
         
        builder.RegisterType<TramiteQueryService>()
             .As<ITramiteQueryService>();
+
+        builder.RegisterType<PreguntasFrecuenteQueryService>()
+             .As<IPreguntasFrecuenteQueryService>();
     }
 }
