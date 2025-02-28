@@ -12,11 +12,14 @@ public  class ApplicationModule: Module
     {
         builder.RegisterType<UsuarioQueryService>()
             .As<IUsuarioQueryService>();
-        
+
         builder.RegisterType<TokenService>()
             .As<ITokenService>();
-        
-       builder.RegisterType<TramiteQueryService>()
-            .As<ITramiteQueryService>();
+
+        builder.RegisterType<TramiteQueryService>()
+                .As<ITramiteQueryService>();
+
+        builder.RegisterType<CooperantesQueryService>()
+            .As<ICooperantesQueryService>();
     }
 }
