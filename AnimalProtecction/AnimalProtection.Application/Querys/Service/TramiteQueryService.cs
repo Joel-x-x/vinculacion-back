@@ -23,7 +23,8 @@ public class TramiteQueryService : ITramiteQueryService
         IQueryable<Tramite> query = _tramiteRepository.GetPageableAsync()
             .Include(t => t.IdtipotramiteNavigation)
             .Include(t => t.IdestadotramiteNavigation)
-            .Include(t => t.Archivostramites);
+            .Include(t => t.Archivostramites)
+            .Where(t => t.Estaactivo == true);
 
         // Obtener el total de registros antes de la paginación
         int totalRecords = await query.CountAsync();
