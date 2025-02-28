@@ -6,8 +6,6 @@ public partial class Cooperantes
 {
     public Guid Id { get; set; }
 
-    public string UrlLogo { get; set; }
-
     public string Nombre { get; set; }
 
     public string Descripcion { get; set; }
@@ -18,14 +16,13 @@ public partial class Cooperantes
 
     public bool EstaActivo { get; set; }
 
-    //Crear el método para generar el cooperante
+    //Crear el mï¿½todo para generar el cooperante
 
     public static Cooperantes CreateFromRecord(CooperantesCreateRecord cooperantesCreateRecors)
     {
         return new Cooperantes
         {
             Id = Guid.NewGuid(),
-            UrlLogo = cooperantesCreateRecors.UrlLogo,
             Nombre = cooperantesCreateRecors.Nombre,
             Descripcion = cooperantesCreateRecors.Descripcion,
             ColorSecundario = cooperantesCreateRecors.ColorSecundario,
@@ -36,8 +33,6 @@ public partial class Cooperantes
 
     public void UpdateFromRecord(CooperantesUpdateRecord cooperantesUpdateRecord)
     {
-        if (!string.Equals(UrlLogo, cooperantesUpdateRecord.UrlLogo, StringComparison.Ordinal))
-            UrlLogo = cooperantesUpdateRecord.UrlLogo;
         if (!string.Equals(Nombre, cooperantesUpdateRecord.Nombre, StringComparison.Ordinal))
             Nombre = cooperantesUpdateRecord.Nombre;
         if (!string.Equals(Descripcion, cooperantesUpdateRecord.Descripcion, StringComparison.Ordinal))

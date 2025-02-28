@@ -20,7 +20,8 @@ public class CooperantesQueryService : ICooperantesQueryService
 
     public async Task<ResultResponse<PagedResponseRecord<CooperantesRecord>>> GetAllCooperantes(int pageNumber, int pageSize)
     {
-        IQueryable<Cooperantes> query = _cooperantesRepository.GetPageableAsync();
+        IQueryable<Cooperantes> query = _cooperantesRepository.GetPageableAsync()
+        .Where(t => t.Estaactivo == true);
 
         int totalRecords = await query.CountAsync();
 
@@ -44,7 +45,7 @@ public class CooperantesQueryService : ICooperantesQueryService
 
         if (cooperante == null)
         {
-            return ResultResponse<CooperantesRecord>.Failure($"No se encontró el cooperante con el id: {id}", 404);
+            return ResultResponse<CooperantesRecord>.Failure($"No se encontrï¿½ el cooperante con el id: {id}", 404);
         }
 
         CooperantesRecord cooperanteRecord = new CooperantesRecord(cooperante);
@@ -56,7 +57,7 @@ public class CooperantesQueryService : ICooperantesQueryService
     {
         if(cooperantesCreateRecord == null)
         {
-            return ResultResponse<CooperantesCreateRecord>.Failure("Los datos del cooperante no son válidos", 400);
+            return ResultResponse<CooperantesCreateRecord>.Failure("Los datos del cooperante no son vï¿½lidos", 400);
         }
 
         var cooperante = Cooperantes.CreateFromRecord(cooperantesCreateRecord);
@@ -73,7 +74,7 @@ public class CooperantesQueryService : ICooperantesQueryService
 
         if(cooperante == null)
         {
-            return ResultResponse<CooperantesUpdateRecord>.Failure($"No se encontró el cooperante con el id: {cooperantesUpdateRecord.Id}", 404);
+            return ResultResponse<CooperantesUpdateRecord>.Failure($"No se encontrï¿½ el cooperante con el id: {cooperantesUpdateRecord.Id}", 404);
         }
 
         cooperante.UpdateFromRecord(cooperantesUpdateRecord);
@@ -89,7 +90,7 @@ public class CooperantesQueryService : ICooperantesQueryService
 
         if(cooperante == null)
         {
-            return ResultResponse<bool>.Failure($"No se encontró el cooperante con el id: {id}", 404);
+            return ResultResponse<bool>.Failure($"No se encontrï¿½ el cooperante con el id: {id}", 404);
         }
 
         cooperante.eliminar();

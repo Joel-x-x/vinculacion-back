@@ -4,7 +4,6 @@ namespace AnimalProtection.Domain.Dto;
 
 public record CooperantesRecord(
     Guid Id,
-    string UrlLogo,
     string Nombre,
     string Descripcion,
     string ColorSecundario,
@@ -26,7 +25,6 @@ public record CooperantesRecord(
 
 public record CooperantesCreateRecord(
     Guid Id,
-    string UrlLogo,
     string Nombre,
     string Descripcion,
     string ColorSecundario,
@@ -36,7 +34,6 @@ public record CooperantesCreateRecord(
 
 public record CooperantesUpdateRecord(
     Guid Id,
-    string UrlLogo,
     string Nombre,
     string Descripcion,
     string ColorSecundario,
