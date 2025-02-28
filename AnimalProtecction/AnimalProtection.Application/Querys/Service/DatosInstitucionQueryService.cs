@@ -53,4 +53,47 @@ public class DatosInstitucionService : IDatosInstitucionService
 
         return ResultResponse<DatosInstitucionRecord>.Success(datosInstitucionRecord);
     }
+
+    public async Task<ResultResponse<DatosInstitucionRecord>> CreateDatosInstitucion(DatosInstitucionRecord datosInstitucionRecord)
+    {
+    var datosInstitucion = new DatosInstitucion
+    {
+        // Asigna las propiedades del record a la entidad
+        Nombre = datosInstitucionRecord.Nombre,
+        Direccion = datosInstitucionRecord.Direccion,
+        Telefono = datosInstitucionRecord.Telefono,
+        // Agrega las demás propiedades necesarias
+    };
+
+    await _datosInstitucionRepository.AddAsync(datosInstitucion);
+    await _datosInstitucionRepository.SaveChangesAsync();
+
+    return ResultResponse<DatosInstitucionRecord>.Success(new DatosInstitucionRecord(datosInstitucion));
+    }
+
+    public async Task<ResultResponse<DatosInstitucionRecord>> UpdateDatosInstitucion(Guid id, DatosInstitucionRecord datosInstitucionRecord)
+    {
+    var datosInstitucion = await _datosInstitucionRepository.GetByIdAsync(id);
+
+    if (datosInstitucion == null)
+    {
+        return ResultResponse<DatosInstitucionRecord>.Failure($"No se encontró la institución con el id: {id}", 404);
+    }
+
+    // Actualiza las propiedades de la entidad con los valores del record
+    datosInstitucion.Nombre = datosInstitucionRecord.Nombre;
+    datosInstitucion.Direccion = datosInstitucionRecord.Direccion;
+    datosInstitucion.Telefono = datosInstitucionRecord.Telefono;
+    // Actualiza las demás propiedades necesarias
+
+    _datosInstitucionRepository.Update(datosInstitucion);
+    await _datosInstitucionRepository.SaveChangesAsync();
+
+    return ResultResponse<DatosInstitucionRecord>.Success(new DatosInstitucionRecord(datosInstitucion));
+    }
+
+    public async Task<ResultResponse<bool>> DeleteDatosInstitucion(Guid id)
+    {
+        
+    }
 }
