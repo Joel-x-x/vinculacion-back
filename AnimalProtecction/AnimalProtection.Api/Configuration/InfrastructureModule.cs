@@ -19,8 +19,10 @@ public class InfrastructureModule: Module
         
         builder.RegisterType<TramiteRepository>()
             .As<ITramiteRepository>();
-        
+        builder.RegisterType<DatosInstitucionRepository>()
+            .As<IDatosInstitucionRepository>();
         builder.RegisterType<CooperantesRepository>()
             .As<ICooperantesRepository>();
+
     }
 }
