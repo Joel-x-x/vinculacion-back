@@ -5,10 +5,6 @@ public class DatosInstitucion
     
     public string Nombre { get; set; }
     
-    public string ColorPagina { get; set; }
-    
-    public string UrlLogo { get; set; }
-    
     public string Ubicacion { get; set; }
     
     public string QuienesSomos { get; set; }
@@ -38,8 +34,6 @@ public class DatosInstitucion
         {
             Id = Guid.NewGuid(),
             Nombre = datosInstitucionCreateRecord.Nombre,
-            ColorPagina = datosInstitucionCreateRecord.ColorPagina,
-            UrlLogo = datosInstitucionCreateRecord.UrlLogo,
             Ubicacion = datosInstitucionCreateRecord.Ubicacion,
             QuienesSomos = datosInstitucionCreateRecord.QuienesSomos,
             Mision = datosInstitucionCreateRecord.Mision,
@@ -56,8 +50,6 @@ public class DatosInstitucion
     public void UpdateFromRecord(DatosInstitucionUpdateRecord datosInstitucionUpdateRecord)
     {
         Nombre = datosInstitucionUpdateRecord.Nombre;
-        ColorPagina = datosInstitucionUpdateRecord.ColorPagina;
-        UrlLogo = datosInstitucionUpdateRecord.UrlLogo;
         Ubicacion = datosInstitucionUpdateRecord.Ubicacion;
         QuienesSomos = datosInstitucionUpdateRecord.QuienesSomos;
         Mision = datosInstitucionUpdateRecord.Mision;

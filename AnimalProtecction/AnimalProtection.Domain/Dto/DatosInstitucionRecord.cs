@@ -5,8 +5,6 @@ namespace AnimalProtection.Domain.Dto
     public record DatosInstitucionRecord(
         Guid Id,
         string Nombre,
-        string ColorPagina,
-        string UrlLogo,
         string Ubicacion,
         string QuienesSomos,
         string Mision,
@@ -20,8 +18,6 @@ namespace AnimalProtection.Domain.Dto
         public DatosInstitucionRecord(DatosInstitucion datosInstitucion) : this(
             datosInstitucion.Id,
             datosInstitucion.Nombre,
-            datosInstitucion.ColorPagina,
-            datosInstitucion.UrlLogo,
             datosInstitucion.Ubicacion,
             datosInstitucion.QuienesSomos,
             datosInstitucion.Mision,
