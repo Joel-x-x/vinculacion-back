@@ -20,7 +20,8 @@ public class PreguntasFrecuenteQueryService : IPreguntasFrecuenteQueryService
     
     public async Task<ResultResponse<PagedResponseRecord<PreguntasFrecuenteRecord>>> GetAllPreguntasFrecuente(int pageNumber, int pageSize)
     {
-        IQueryable<Preguntasfrecuente> query = _preguntasFrecuenteRepository.GetPageableAsync();
+        IQueryable<Preguntasfrecuente> query = _preguntasFrecuenteRepository.GetPageableAsync()
+        .Where(t => t.Estaactivo == true);
 
         // Obtener el total de registros antes de la paginación
         int totalRecords = await query.CountAsync();
