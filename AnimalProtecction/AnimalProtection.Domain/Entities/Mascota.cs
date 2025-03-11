@@ -1,4 +1,6 @@
-﻿namespace AnimalProtection.Domain.Entities;
+﻿using AnimalProtection.Domain.Dto;
+
+namespace AnimalProtection.Domain.Entities;
 
 public partial class Mascota
 {
@@ -29,4 +31,61 @@ public partial class Mascota
     public virtual Genero IdgeneroNavigation { get; set; } = null!;
 
     public virtual Raza IdrazaNavigation { get; set; } = null!;
+
+    public static Mascota CreateFromRecord(MascotaCreateRecord mascotaCreateRecord)
+    {
+        return new Mascota
+        {
+            Id = mascotaCreateRecord.Id ?? Guid.NewGuid(),
+            Nombre = mascotaCreateRecord.Nombre,
+            Edad = mascotaCreateRecord.Edad,
+            Caracter = mascotaCreateRecord.Caracter,
+            Detalles = mascotaCreateRecord.Detalles,
+            Idgenero = mascotaCreateRecord.Idgenero,
+            Idespecie = mascotaCreateRecord.Idespecie,
+            Idraza = mascotaCreateRecord.Idraza,
+            Estaactivo = mascotaCreateRecord.Estaactivo
+        };
+    }
+
+    public void UpdateFromRecord(MascotaUpdateRecord mascotaUpdateRecord)
+    {
+        if (mascotaUpdateRecord.Nombre != null)
+        {
+            Nombre = mascotaUpdateRecord.Nombre;
+        }
+        if (mascotaUpdateRecord.Edad != null)
+        {
+            Edad = mascotaUpdateRecord.Edad;
+        }
+        if (mascotaUpdateRecord.Caracter != null)
+        {
+            Caracter = mascotaUpdateRecord.Caracter;
+        }
+        if (mascotaUpdateRecord.Detalles != null)
+        {
+            Detalles = mascotaUpdateRecord.Detalles;
+        }
+        if (mascotaUpdateRecord.Idgenero != null)
+        {
+            Idgenero = mascotaUpdateRecord.Idgenero;
+        }
+        if (mascotaUpdateRecord.Idespecie != null)
+        {
+            Idespecie = mascotaUpdateRecord.Idespecie;
+        }
+        if (mascotaUpdateRecord.Idraza != null)
+        {
+            Idraza = mascotaUpdateRecord.Idraza;
+        }
+        if (mascotaUpdateRecord.Estaactivo != null)
+        {
+            Estaactivo = mascotaUpdateRecord.Estaactivo;
+        }
+    }
+
+    public void Delete()
+    {
+        Estaactivo = false;
+    }
 }

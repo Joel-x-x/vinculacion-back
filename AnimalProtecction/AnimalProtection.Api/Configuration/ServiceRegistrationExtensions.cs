@@ -6,7 +6,7 @@ using Module = Autofac.Module;
 
 namespace AnimalProtection.Api.Configuration;
 
-public  class ApplicationModule: Module
+public class ApplicationModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {
@@ -14,13 +14,21 @@ public  class ApplicationModule: Module
             .As<IUsuarioQueryService>();
 
         builder.RegisterType<TokenService>()
-            .As<ITokenService>();    
-       builder.RegisterType<TramiteQueryService>()
-            .As<ITramiteQueryService>();
+            .As<ITokenService>();
+        builder.RegisterType<TramiteQueryService>()
+             .As<ITramiteQueryService>();
         builder.RegisterType<DatosInstitucionService>()
             .As<IDatosInstitucionService>();
         builder.RegisterType<CooperantesQueryService>()
             .As<ICooperantesQueryService>();
 
+        builder.RegisterType<GeneroQueryService>()
+            .As<IGeneroQueryService>();
+        builder.RegisterType<EspecyQueryService>()
+            .As<IEspecyQueryService>();
+        builder.RegisterType<RazaQueryService>()
+            .As<IRazaQueryService>();
+        builder.RegisterType<MascotaQueryService>()
+            .As<IMascotaQueryService>();
     }
 }

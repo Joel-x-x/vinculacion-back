@@ -1,4 +1,6 @@
-﻿namespace AnimalProtection.Domain.Entities;
+﻿using AnimalProtection.Domain.Dto;
+
+namespace AnimalProtection.Domain.Entities;
 
 public partial class Raza
 {
@@ -9,4 +11,31 @@ public partial class Raza
     public bool? Estaactivo { get; set; }
 
     public virtual ICollection<Mascota> Mascota { get; set; } = new List<Mascota>();
+
+    public static Raza CreateFromRecord(RazaCreateRecord razaCreateRecord)
+    {
+        return new Raza
+        {
+            Id = razaCreateRecord.Id ?? Guid.NewGuid(),
+            Nombre = razaCreateRecord.Nombre,
+            Estaactivo = razaCreateRecord.Estaactivo
+        };
+    }
+
+    public void UpdateFromRecord(RazaUpdateRecord razaUpdateRecord)
+    {
+        if (razaUpdateRecord.Nombre != null)
+        {
+            Nombre = razaUpdateRecord.Nombre;
+        }
+        if (razaUpdateRecord.Estaactivo != null)
+        {
+            Estaactivo = razaUpdateRecord.Estaactivo;
+        }
+    }
+
+    public void Delete()
+    {
+        Estaactivo = false;
+    }
 }
