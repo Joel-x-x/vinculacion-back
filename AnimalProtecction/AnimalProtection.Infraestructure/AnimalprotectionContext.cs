@@ -26,7 +26,7 @@ public partial class AnimalprotectionContext : DbContext
 
     public virtual DbSet<Campana> Campanas { get; set; }
 
-    public virtual DbSet<Cooperante> Cooperantes { get; set; }
+    public virtual DbSet<Cooperantes> Cooperantes { get; set; }
 
     public virtual DbSet<DatosInstitucion> Datosinstitucions { get; set; }
 
