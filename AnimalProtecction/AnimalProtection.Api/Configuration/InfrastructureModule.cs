@@ -13,16 +13,20 @@ public class InfrastructureModule: Module
         builder.RegisterGeneric(typeof(GenericRepository<>))
             .As(typeof(IGenericRepository<>))
             .InstancePerLifetimeScope();
-        
+            
         builder.RegisterType<UsuarioRepository>()
             .As<IUsuarioRepository>();
-        
+            
         builder.RegisterType<TramiteRepository>()
             .As<ITramiteRepository>();
+            
+        builder.RegisterType<PreguntasFrecuenteRepository>()
+            .As<IPreguntasFrecuenteRepository>();
+            
         builder.RegisterType<DatosInstitucionRepository>()
             .As<IDatosInstitucionRepository>();
+            
         builder.RegisterType<CooperantesRepository>()
             .As<ICooperantesRepository>();
-
     }
 }
