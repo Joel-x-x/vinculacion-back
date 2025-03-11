@@ -17,20 +17,28 @@ public class InfrastructureModule : Module
 
         builder.RegisterType<UsuarioRepository>()
             .As<IUsuarioRepository>();
-
+            
         builder.RegisterType<TramiteRepository>()
             .As<ITramiteRepository>();
+            
+        builder.RegisterType<PreguntasFrecuenteRepository>()
+            .As<IPreguntasFrecuenteRepository>();
+            
         builder.RegisterType<DatosInstitucionRepository>()
             .As<IDatosInstitucionRepository>();
+            
         builder.RegisterType<CooperantesRepository>()
             .As<ICooperantesRepository>();
 
         builder.RegisterType<GeneroRepository>()
             .As<IGeneroRepository>();
+            
         builder.RegisterType<EspecyRepository>()
             .As<IEspecyRepository>();
+            
         builder.RegisterType<RazaRepository>()
             .As<IRazaRepository>();
+            
         builder.RegisterType<MascotaRepository>()
             .As<IMascotaRepository>();
     }
