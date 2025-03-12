@@ -8,6 +8,6 @@ public interface IDatosInstitucionService
     Task<ResultResponse<PagedResponseRecord<DatosInstitucionRecord>>> GetAllDatosInstitucion(int pageNumber, int pageSize);
     Task<ResultResponse<DatosInstitucionRecord>> GetDatosInstitucionById<T>(Guid id);
     Task<ResultResponse<DatosInstitucionRecord>> CreateDatosInstitucion(DatosInstitucionCreateRecord datosInstitucionCreateRecord);
-    Task<ResultResponse<DatosInstitucionUpdateRecord>> UpdateDatosInstitucion(DatosInstitucionUpdateRecord datosInstitucionUpdateRecord);
+    Task<ResultResponse<DatosInstitucionRecord>> UpdateDatosInstitucion(DatosInstitucionUpdateRecord datosInstitucionUpdateRecord);
     Task<ResultResponse<bool>> DeleteDatosInstitucion(Guid id);
 }

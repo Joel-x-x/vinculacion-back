@@ -64,13 +64,13 @@ public class DatosInstitucionService : IDatosInstitucionService
         return ResultResponse<DatosInstitucionRecord>.Success(new DatosInstitucionRecord(datosInstitucion), 201);
     }
 
-    public async Task<ResultResponse<DatosInstitucionUpdateRecord>> UpdateDatosInstitucion(DatosInstitucionUpdateRecord datosInstitucionUpdateRecord)
+    public async Task<ResultResponse<DatosInstitucionRecord>> UpdateDatosInstitucion(DatosInstitucionUpdateRecord datosInstitucionUpdateRecord)
     {
     var datosInstitucion = await _datosInstitucionRepository.GetByIdAsync(datosInstitucionUpdateRecord.Id);
 
     if (datosInstitucion == null)
     {
-        return ResultResponse<DatosInstitucionUpdateRecord>.Failure($"No se encontró la institución con el id: {datosInstitucionUpdateRecord.Id}", 404);
+        return ResultResponse<DatosInstitucionRecord>.Failure($"No se encontró la institución con el id: {datosInstitucionUpdateRecord.Id}", 404);
     }
 
     // Actualiza las propiedades de la entidad con los valores del record
@@ -79,7 +79,7 @@ public class DatosInstitucionService : IDatosInstitucionService
     _datosInstitucionRepository.UpdateAsync(datosInstitucion);
     await _datosInstitucionRepository.SaveAsync();
 
-    return ResultResponse<DatosInstitucionUpdateRecord>.Success(datosInstitucionUpdateRecord);
+    return ResultResponse<DatosInstitucionRecord>.Success(new DatosInstitucionRecord(datosInstitucion));
     }
     
     public Task<ResultResponse<bool>> DeleteDatosInstitucion(Guid id)
