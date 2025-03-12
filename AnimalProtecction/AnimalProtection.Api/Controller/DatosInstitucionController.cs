@@ -59,12 +59,14 @@ public class DatosInstitucionController : ControllerBase{
     /// </summary>
     /// <param name="id">ID de la institución.</param>
     /// <returns>El dato de institución correspondiente al ID proporcionado.</returns>
-    [HttpGet("GetDatosInstitucionById/{id}")]
+    [HttpGet("GetDatosInstitucionLast")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> GetDatosInstitucionById(Guid id)
+    public async Task<IActionResult> GetDatosInstitucionById()
     {
+        Guid id = new Guid("c39bdfd0-2865-4bdd-8f13-887bc31f6f23");
+        
         _logger.LogInformation($"Inicia el proceso para obtener el dato de institución con ID: {id}");
 
         var result = await _datosInstitucionService.GetDatosInstitucionById<DatosInstitucionRecord>(id);
