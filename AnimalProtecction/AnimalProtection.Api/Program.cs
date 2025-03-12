@@ -19,10 +19,9 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigins",
         policy =>
         {
-            policy.WithOrigins() // Dominios permitidos
+            policy.WithOrigins("http://localhost:4200/") // Dominios permitidos
                 .AllowAnyMethod()
                 .AllowAnyHeader();
-            // .AllowCredentials(); // Si necesitas cookies o autenticación
         });
 });
 
