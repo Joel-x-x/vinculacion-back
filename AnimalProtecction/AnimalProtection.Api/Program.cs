@@ -13,6 +13,19 @@ using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Agregar configuración de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins",
+        policy =>
+        {
+            policy.WithOrigins("https://tu-dominio.com", "https://otro-dominio.com") // Dominios permitidos
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials(); // Si necesitas cookies o autenticación
+        });
+});
+
 // Configuración de la cadena de conexión
 var connectionString = builder.Configuration.GetConnectionString("AnimalProtectionDb");
 builder.Services.AddDbContext<AnimalprotectionContext>(options =>
@@ -99,6 +112,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 var app = builder.Build();
+
+// Habilitar CORS antes de usar controladores
+app.UseCors("AllowSpecificOrigins");
 
 // Configuración del pipeline
 if (app.Environment.IsDevelopment())
