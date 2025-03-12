@@ -21,8 +21,8 @@ builder.Services.AddCors(options =>
         {
             policy.WithOrigins() // Dominios permitidos
                 .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowCredentials(); // Si necesitas cookies o autenticación
+                .AllowAnyHeader();
+            // .AllowCredentials(); // Si necesitas cookies o autenticación
         });
 });
 
