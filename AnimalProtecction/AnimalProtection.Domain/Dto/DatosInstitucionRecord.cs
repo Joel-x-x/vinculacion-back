@@ -32,7 +32,6 @@ namespace AnimalProtection.Domain.Dto
 }
 
 public record DatosInstitucionCreateRecord(
-    Guid? Id,
     string Nombre,
     string ColorPagina,
     string UrlLogo,
@@ -42,8 +41,7 @@ public record DatosInstitucionCreateRecord(
     string Vision,
     string ColorPrincipal,
     string ColorSecundario,
-    Guid? IdArchivoLogo,
-    bool EstaActivo
+    Guid? IdArchivoLogo
 );
 
 public record DatosInstitucionUpdateRecord(

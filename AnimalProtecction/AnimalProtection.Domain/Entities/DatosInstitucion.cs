@@ -32,6 +32,7 @@ public class DatosInstitucion
     {
         return new DatosInstitucion
         {
+            Id = Guid.NewGuid(),
             Nombre = datosInstitucionCreateRecord.Nombre,
             Ubicacion = datosInstitucionCreateRecord.Ubicacion,
             QuienesSomos = datosInstitucionCreateRecord.QuienesSomos,
