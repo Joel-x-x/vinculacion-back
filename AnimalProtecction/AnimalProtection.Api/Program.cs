@@ -19,7 +19,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowSpecificOrigins",
         policy =>
         {
-            policy.WithOrigins("*") // Dominios permitidos
+            policy.WithOrigins() // Dominios permitidos
                 .AllowAnyMethod()
                 .AllowAnyHeader()
                 .AllowCredentials(); // Si necesitas cookies o autenticación
