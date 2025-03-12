@@ -54,14 +54,14 @@ public class DatosInstitucionService : IDatosInstitucionService
         return ResultResponse<DatosInstitucionRecord>.Success(datosInstitucionRecord);
     }
 
-    public async Task<ResultResponse<DatosInstitucionCreateRecord>> CreateDatosInstitucion(DatosInstitucionCreateRecord datosInstitucionRecord)
+    public async Task<ResultResponse<DatosInstitucionRecord>> CreateDatosInstitucion(DatosInstitucionCreateRecord datosInstitucionRecord)
     {
         var datosInstitucion = DatosInstitucion.CreateFromRecord(datosInstitucionRecord);
 
         await _datosInstitucionRepository.AddAsync(datosInstitucion);
         await _datosInstitucionRepository.SaveAsync();
 
-        return ResultResponse<DatosInstitucionCreateRecord>.Success(datosInstitucionRecord, 201);
+        return ResultResponse<DatosInstitucionRecord>.Success(new DatosInstitucionRecord(datosInstitucion), 201);
     }
 
     public async Task<ResultResponse<DatosInstitucionUpdateRecord>> UpdateDatosInstitucion(DatosInstitucionUpdateRecord datosInstitucionUpdateRecord)

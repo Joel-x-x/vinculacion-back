@@ -32,7 +32,6 @@ public class DatosInstitucion
     {
         return new DatosInstitucion
         {
-            Id = Guid.NewGuid(),
             Nombre = datosInstitucionCreateRecord.Nombre,
             Ubicacion = datosInstitucionCreateRecord.Ubicacion,
             QuienesSomos = datosInstitucionCreateRecord.QuienesSomos,
@@ -41,7 +40,7 @@ public class DatosInstitucion
             ColorPrincipal = datosInstitucionCreateRecord.ColorPrincipal,
             ColorSecundario = datosInstitucionCreateRecord.ColorSecundario,
             IdArchivoLogo = datosInstitucionCreateRecord.IdArchivoLogo,
-            EstaActivo = datosInstitucionCreateRecord.EstaActivo
+            EstaActivo = true
         };
     }
 

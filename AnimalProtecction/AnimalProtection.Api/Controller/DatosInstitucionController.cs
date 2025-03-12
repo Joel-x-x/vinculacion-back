@@ -106,7 +106,7 @@ public class DatosInstitucionController : ControllerBase{
         }
 
         _logger.LogInformation("Dato de institución creado exitosamente.");
-        return CreatedAtAction(nameof(GetDatosInstitucionById), new { id = datosInstitucionCreateRecord.Id }, result.Value);
+        return CreatedAtAction(nameof(GetDatosInstitucionById), new { id = result.Value.Id }, result.Value);
     }
 
     /// <summary>
