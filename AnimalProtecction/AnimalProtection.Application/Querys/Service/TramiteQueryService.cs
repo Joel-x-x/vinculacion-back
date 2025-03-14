@@ -59,13 +59,9 @@ public class TramiteQueryService : ITramiteQueryService
         return ResultResponse<TramiteRecord>.Success(tramiteRecord);
     }
 
-    public async Task<ResultResponse<TramiteCreateRecord>> CreateTramite(TramiteCreateRecord tramiteCreateRecord)
+    public async Task<ResultResponse<TramiteRecord>> CreateTramite(TramiteCreateRecord tramiteCreateRecord)
     {
         // TODO: Validar los datos del trámite
-        if (tramiteCreateRecord == null)
-        {
-            return ResultResponse<TramiteCreateRecord>.Failure("Los datos del trámite son inválidos", 400);
-        }
 
         // Crear una nueva instancia de Tramite usando el método de fábrica
         var tramite = Tramite.CreateFromRecord(tramiteCreateRecord);
@@ -75,24 +71,24 @@ public class TramiteQueryService : ITramiteQueryService
         await _tramiteRepository.SaveAsync();
 
         // Devolver el trámite creado como respuesta
-        return ResultResponse<TramiteCreateRecord>.Success(tramiteCreateRecord, 201);
+        return ResultResponse<TramiteRecord>.Success(new TramiteRecord(tramite), 201);
     }
 
-    public async Task<ResultResponse<TramiteUpdateRecord>> UpdateTramite(TramiteUpdateRecord tramiteUpdateRecord)
+    public async Task<ResultResponse<TramiteRecord>> UpdateTramite(TramiteUpdateRecord tramiteUpdateRecord)
     {
         // TODO: Validar los datos del trámite
         var tramite = await _tramiteRepository.GetByIdAsync(tramiteUpdateRecord.Id);
 
-        if (tramite == null)
-        {
-            return ResultResponse<TramiteUpdateRecord>.Failure($"No se encontró el trámite con el id: {tramiteUpdateRecord.Id}", 404);
-        }
+        // if (tramite == null)
+        // {
+        //     return ResultResponse<TramiteRecord>.Failure($"No se encontró el trámite con el id: {tramiteUpdateRecord.Id}", 404);
+        // }
         
         tramite.UpdateFromRecord(tramiteUpdateRecord);
         
         await _tramiteRepository.UpdateAsync(tramite);
         
-        return ResultResponse<TramiteUpdateRecord>.Success(tramiteUpdateRecord, 200);
+        return ResultResponse<TramiteRecord>.Success(new TramiteRecord(tramite), 200);
     }
 
     public async Task<ResultResponse<bool>> DeleteTramite(Guid id)

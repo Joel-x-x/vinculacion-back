@@ -48,7 +48,7 @@ public partial class Tramite
             Contacto = tramiteCreateRecord.Contacto,
             Datos = tramiteCreateRecord.Datos,
             Fecha = DateTime.Now, // TODO: Revisar si la fecha debe ser la actual o la que se recibe
-            Numerotramite = tramiteCreateRecord.Numerotramite, // Crear el método para generar el número de trámite
+            Numerotramite = tramiteCreateRecord.Numerotramite, // TODO: Generar automaticamente el número de tramite
             Direccion = tramiteCreateRecord.Direccion,
             Idtipotramite = tramiteCreateRecord.Idtipotramite,
             Idestadotramite = tramiteCreateRecord.Idestadotramite,

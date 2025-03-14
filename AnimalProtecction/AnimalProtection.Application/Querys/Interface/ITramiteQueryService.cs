@@ -7,7 +7,7 @@ public interface ITramiteQueryService
 {
     Task<ResultResponse<PagedResponseRecord<TramiteRecord>>> GetAllTramite(int pageNumber, int pageSize);
     Task<ResultResponse<TramiteRecord>> GetTramiteById<T>(Guid id);
-    Task<ResultResponse<TramiteCreateRecord>> CreateTramite(TramiteCreateRecord tramiteCreateRecord);
-    Task<ResultResponse<TramiteUpdateRecord>> UpdateTramite(TramiteUpdateRecord tramiteUpdateRecord);
+    Task<ResultResponse<TramiteRecord>> CreateTramite(TramiteCreateRecord tramiteCreateRecord);
+    Task<ResultResponse<TramiteRecord>> UpdateTramite(TramiteUpdateRecord tramiteUpdateRecord);
     Task<ResultResponse<bool>> DeleteTramite(Guid id);
 }

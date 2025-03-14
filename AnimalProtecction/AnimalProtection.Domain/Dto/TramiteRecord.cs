@@ -56,7 +56,6 @@ public record TramiteRecord(
 }
 
 public record TramiteCreateRecord(
-    Guid? Id,
     string Nombre,
     string Apellido,
     string Email,
@@ -66,8 +65,7 @@ public record TramiteCreateRecord(
     int Numerotramite,
     string? Direccion,
     Guid Idtipotramite,
-    Guid Idestadotramite,
-    bool? Estaactivo
+    Guid Idestadotramite
 );
 
 public record TramiteUpdateRecord(

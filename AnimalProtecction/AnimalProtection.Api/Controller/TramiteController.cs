@@ -79,7 +79,7 @@ public class TramiteController: ControllerBase
     {
         var result = await _tramiteQueryService.CreateTramite(tramiteCreateRecord);
         return result.IsSuccess
-            ? CreatedAtAction(nameof(GetTramiteById), new { id = tramiteCreateRecord.Id }, result.Value)
+            ? CreatedAtAction(nameof(GetTramiteById), new { id = result.Value.Id }, result.Value)
             : BadRequest(result.Error);
     }
 
