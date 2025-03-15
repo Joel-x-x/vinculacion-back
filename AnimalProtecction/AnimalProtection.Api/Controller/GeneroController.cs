@@ -75,7 +75,7 @@ public class GeneroController : ControllerBase
     {
         var result = await _generoQueryService.CreateGenero(generoCreateRecord);
         return result.IsSuccess
-            ? CreatedAtAction(nameof(GetGeneroById), new { id = generoCreateRecord.Id }, result.Value)
+            ? CreatedAtAction(nameof(GetGeneroById), new { id = generoCreateRecord }, result.Value)
             : BadRequest(result.Error);
     }
 

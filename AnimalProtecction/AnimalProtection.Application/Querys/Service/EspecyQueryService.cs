@@ -40,7 +40,7 @@ namespace AnimalProtection.Application.Querys.Service
 
         public async Task<ResultResponse<PagedResponseRecord<EspecyRecord>>> GetAllEspecies(int pageNumber, int pageSize)
         {
-            var query = _especyRepository.GetPageableAsync();
+            var query = _especyRepository.GetPageableAsync().Where(t => t.Estaactivo == true);
             var totalRecords = await query.CountAsync();
             var pagedResult = await query
                 .Skip(pageSize * (pageNumber - 1))

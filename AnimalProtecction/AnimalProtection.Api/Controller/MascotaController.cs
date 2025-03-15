@@ -75,7 +75,7 @@ public class MascotaController : ControllerBase
     {
         var result = await _mascotaQueryService.CreateMascota(mascotaCreateRecord);
         return result.IsSuccess
-            ? CreatedAtAction(nameof(GetMascotaById), new { id = mascotaCreateRecord.Id }, result.Value)
+            ? CreatedAtAction(nameof(GetMascotaById), new { id = mascotaCreateRecord }, result.Value)
             : BadRequest(result.Error);
     }
 

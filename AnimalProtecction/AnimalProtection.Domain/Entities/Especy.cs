@@ -16,7 +16,6 @@ public partial class Especy
     {
         return new Especy
         {
-            Id = especyCreateRecord.Id ?? Guid.NewGuid(),
             Nombre = especyCreateRecord.Nombre,
             Estaactivo = especyCreateRecord.Estaactivo
         };

@@ -22,7 +22,6 @@ public record EspecyRecord(
 }
 
 public record EspecyCreateRecord(
-    Guid? Id,
     string Nombre,
     bool? Estaactivo
 );

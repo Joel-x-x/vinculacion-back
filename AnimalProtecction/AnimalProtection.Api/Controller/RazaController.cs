@@ -75,7 +75,7 @@ public class RazaController : ControllerBase
     {
         var result = await _razaQueryService.CreateRaza(razaCreateRecord);
         return result.IsSuccess
-            ? CreatedAtAction(nameof(GetRazaById), new { id = razaCreateRecord.Id }, result.Value)
+            ? CreatedAtAction(nameof(GetRazaById), new { id = razaCreateRecord }, result.Value)
             : BadRequest(result.Error);
     }
 

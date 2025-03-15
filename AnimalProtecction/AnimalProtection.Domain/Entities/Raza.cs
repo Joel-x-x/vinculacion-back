@@ -16,7 +16,6 @@ public partial class Raza
     {
         return new Raza
         {
-            Id = razaCreateRecord.Id ?? Guid.NewGuid(),
             Nombre = razaCreateRecord.Nombre,
             Estaactivo = razaCreateRecord.Estaactivo
         };

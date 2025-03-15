@@ -18,7 +18,6 @@ public record RazaRecord
 }
 
 public record RazaCreateRecord(
-    Guid? Id,
     string Nombre,
     bool? Estaactivo
 );

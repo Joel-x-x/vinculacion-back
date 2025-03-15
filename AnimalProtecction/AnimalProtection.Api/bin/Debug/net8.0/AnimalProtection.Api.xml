@@ -193,6 +193,45 @@
             <param name="id">ID de la mascota a eliminar.</param>
             <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
         </member>
+        <member name="M:AnimalProtection.Api.Controller.PreguntasFrecuenteController.GetAllPreguntasFrecuente(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de Preguntas Frecuentes.
+            </summary>
+            <param name="pageNumber">Número de página.</param>
+            <param name="pageSize">Tamaño de página.</param>
+            <returns>Una lista paginada de Preguntas Frecuentes.</returns>
+            <response code="200">Devuelve la lista de Preguntas Frecuentes paginados.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran Preguntas Frecuentes.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.PreguntasFrecuenteController.GetPreguntaFrecuenteById(System.Guid)">
+            <summary>
+            Obtiene un  Pregunta Frecuente por su ID.
+            </summary>
+            <param name="id">ID del Pregunta Frecuente.</param>
+            <returns>El  Pregunta Frecuente correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.PreguntasFrecuenteController.CreatePreguntaFrecuente(AnimalProtection.Domain.Dto.PreguntasFrecuenteCreateRecord)">
+            <summary>
+            Crea un nuevo  Pregunta Frecuente.
+            </summary>
+            <param name="preguntaFrecuenteCreateRecord">Datos del Pregunta Frecuente a crear.</param>
+            <returns>El Pregunta Frecuente creado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.PreguntasFrecuenteController.UpdatePreguntaFrecuente(AnimalProtection.Domain.Dto.PreguntasFrecuenteUpdateRecord)">
+            <summary>
+            Actualiza un Pregunta Frecuente existente.
+            </summary>
+            <param name="preguntaFrecuenteUpdateRecord">Datos actualizados del Pregunta Frecuente.</param>
+            <returns>El Pregunta Frecuente actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.PreguntasFrecuenteController.DeletePreguntaFrecuente(System.Guid)">
+            <summary>
+            Elimina un Pregunta Frecuente por su ID.
+            </summary>
+            <param name="id">ID del Pregunta Frecuente a eliminar.</param>
+            <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
+        </member>
         <member name="M:AnimalProtection.Api.Controller.RazaController.GetAllRazas(System.Int32,System.Int32)">
             <summary>
             Obtiene una lista paginada de Razas.

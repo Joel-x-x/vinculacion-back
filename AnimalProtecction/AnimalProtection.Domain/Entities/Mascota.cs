@@ -36,7 +36,6 @@ public partial class Mascota
     {
         return new Mascota
         {
-            Id = mascotaCreateRecord.Id ?? Guid.NewGuid(),
             Nombre = mascotaCreateRecord.Nombre,
             Edad = mascotaCreateRecord.Edad,
             Caracter = mascotaCreateRecord.Caracter,

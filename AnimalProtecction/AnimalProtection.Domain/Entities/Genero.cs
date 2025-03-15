@@ -16,7 +16,6 @@ public partial class Genero
     {
         return new Genero
         {
-            Id = generoCreateRecord.Id ?? Guid.NewGuid(),
             Nombre = generoCreateRecord.Nombre,
             Estaactivo = generoCreateRecord.Estaactivo
         };

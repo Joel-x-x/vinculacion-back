@@ -75,7 +75,7 @@ public class EspecieController : ControllerBase
     {
         var result = await _especieQueryService.CreateEspecy(especyCreateRecord);
         return result.IsSuccess
-            ? CreatedAtAction(nameof(GetEspecieById), new { id = especyCreateRecord.Id }, result.Value)
+            ? CreatedAtAction(nameof(GetEspecieById), new { id = especyCreateRecord }, result.Value)
             : BadRequest(result.Error);
     }
 

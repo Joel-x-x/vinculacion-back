@@ -30,7 +30,6 @@ public record MascotaRecord
 }
 
 public record MascotaCreateRecord(
-    Guid? Id,
     string Nombre,
     int Edad,
     string? Caracter,
