@@ -57,7 +57,6 @@ public class DatosInstitucion
         ColorPrincipal = datosInstitucionUpdateRecord.ColorPrincipal;
         ColorSecundario = datosInstitucionUpdateRecord.ColorSecundario;
         IdArchivoLogo = datosInstitucionUpdateRecord.IdArchivoLogo;
-        EstaActivo = datosInstitucionUpdateRecord.EstaActivo;
     }
 
     // Crear el método para eliminar institución

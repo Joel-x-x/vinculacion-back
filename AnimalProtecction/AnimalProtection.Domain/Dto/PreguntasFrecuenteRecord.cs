@@ -30,8 +30,7 @@ public record PreguntasFrecuenteUpdateRecord(
     Guid Id,
     string Pregunta,
     string Respuesta,
-    int Prioridad,
-    bool Estaactivo
+    int Prioridad
 );
 
 

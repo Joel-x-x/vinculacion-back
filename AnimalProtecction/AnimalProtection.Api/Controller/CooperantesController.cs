@@ -21,10 +21,10 @@ public class CooperantesController : ControllerBase
     }
 
     /// <summary>
-    /// Obtiene una lista paginada de trámites.
+    /// Obtiene una lista paginada de trï¿½mites.
     /// </summary>
-    /// <param name="pageNumber">Número de página.</param>
-    /// <param name="pageSize">Tamaño de página.</param>
+    /// <param name="pageNumber">Nï¿½mero de pï¿½gina.</param>
+    /// <param name="pageSize">Tamaï¿½o de pï¿½gina.</param>
     /// <returns>Una lista paginada de cooperantes.</returns>
     /// <response code="200">Devuelve la lista de cooperants paginados.</response>
     /// <response code="400">Si ocurre un error al procesar la solicitud.</response>
@@ -36,7 +36,7 @@ public class CooperantesController : ControllerBase
 
     public  async Task<IActionResult> GetAllCooperantes([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
     {
-        _logger.LogInformation($"Inicia el proceso para obtener cooperantes. Página: {pageNumber}, Tamaño: {pageSize}");
+        _logger.LogInformation($"Inicia el proceso para obtener cooperantes. Pï¿½gina: {pageNumber}, Tamaï¿½o: {pageSize}");
 
         var result = await _cooperantesQueryService.GetAllCooperantes(pageNumber, pageSize);
 
@@ -83,7 +83,7 @@ public class CooperantesController : ControllerBase
     {
         var result = await _cooperantesQueryService.CreateCooperante(cooperantesCreateRecord);
         return result.IsSuccess
-            ? CreatedAtAction(nameof(GetCooperanteById), new { id = cooperantesCreateRecord.Id}, result.Value)
+            ? CreatedAtAction(nameof(GetCooperanteById), new { id = result.Value.Id }, result.Value)
             : BadRequest(result.Error);
     }
 
@@ -107,7 +107,7 @@ public class CooperantesController : ControllerBase
     /// Elimina un cooperante por su ID.
     /// </summary>
     /// <param name="id">ID del cooperante a eliminar.</param>
-    /// <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
+    /// <returns>Un resultado indicando si la eliminaciï¿½n fue exitosa.</returns>
     [HttpDelete("DeleteCooperante/{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
