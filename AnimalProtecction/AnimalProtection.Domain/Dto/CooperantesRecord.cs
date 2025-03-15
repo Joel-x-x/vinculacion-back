@@ -23,12 +23,10 @@ public record CooperantesRecord(
 }
 
 public record CooperantesCreateRecord(
-    Guid Id,
     string Nombre,
     string Descripcion,
     string ColorSecundario,
-    Guid? IdArchivoLogo,
-    bool EstaActivo
+    Guid? IdArchivoLogo
 );
 
 public record CooperantesUpdateRecord(

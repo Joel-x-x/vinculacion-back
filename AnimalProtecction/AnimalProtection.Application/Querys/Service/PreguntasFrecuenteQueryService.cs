@@ -56,12 +56,12 @@ public class PreguntasFrecuenteQueryService : IPreguntasFrecuenteQueryService
         return ResultResponse<PreguntasFrecuenteRecord>.Success(preguntasFrecuenteRecord);
     }
 
-    public async Task<ResultResponse<PreguntasFrecuenteCreateRecord>> CreatePreguntasFrecuente(PreguntasFrecuenteCreateRecord preguntasFrecuenteCreateRecord)
+    public async Task<ResultResponse<PreguntasFrecuenteRecord>> CreatePreguntasFrecuente(PreguntasFrecuenteCreateRecord preguntasFrecuenteCreateRecord)
     {
         // TODO: Validar los datos del trámite
         if (preguntasFrecuenteCreateRecord == null)
         {
-            return ResultResponse<PreguntasFrecuenteCreateRecord>.Failure("Los datos de la pregunta son inválidos", 400);
+            return ResultResponse<PreguntasFrecuenteRecord>.Failure("Los datos de la pregunta son inválidos", 400);
         }
 
         // Crear una nueva instancia de Pregunta frecuente usando el método de fábrica
@@ -72,24 +72,24 @@ public class PreguntasFrecuenteQueryService : IPreguntasFrecuenteQueryService
         await _preguntasFrecuenteRepository.SaveAsync();
 
         // Devolver el trámite creado como respuesta
-        return ResultResponse<PreguntasFrecuenteCreateRecord>.Success(preguntasFrecuenteCreateRecord, 201);
+        return ResultResponse<PreguntasFrecuenteRecord>.Success(new PreguntasFrecuenteRecord(preguntaFrecuente), 201);
     }
 
-    public async Task<ResultResponse<PreguntasFrecuenteUpdateRecord>> UpdatePreguntasFrecuente(PreguntasFrecuenteUpdateRecord preguntasFrecuenteUpdateRecord)
+    public async Task<ResultResponse<PreguntasFrecuenteRecord>> UpdatePreguntasFrecuente(PreguntasFrecuenteUpdateRecord preguntasFrecuenteUpdateRecord)
     {
         // TODO: Validar los datos del trámite
         var preguntaFrecuente = await _preguntasFrecuenteRepository.GetByIdAsync(preguntasFrecuenteUpdateRecord.Id);
 
         if (preguntaFrecuente == null)
         {
-            return ResultResponse<PreguntasFrecuenteUpdateRecord>.Failure($"No se encontró el trámite con el id: {preguntasFrecuenteUpdateRecord.Id}", 404);
+            return ResultResponse<PreguntasFrecuenteRecord>.Failure($"No se encontró el trámite con el id: {preguntasFrecuenteUpdateRecord.Id}", 404);
         }
 
         preguntaFrecuente.UpdateFromRecord(preguntasFrecuenteUpdateRecord);
 
         await _preguntasFrecuenteRepository.UpdateAsync(preguntaFrecuente);
 
-        return ResultResponse<PreguntasFrecuenteUpdateRecord>.Success(preguntasFrecuenteUpdateRecord, 200);
+        return ResultResponse<PreguntasFrecuenteRecord>.Success(new PreguntasFrecuenteRecord(preguntaFrecuente), 200);
     }
 
     public async Task<ResultResponse<bool>> DeletePreguntasFrecuente(Guid id)

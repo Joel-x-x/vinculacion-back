@@ -68,10 +68,10 @@ public class DatosInstitucionService : IDatosInstitucionService
     {
     var datosInstitucion = await _datosInstitucionRepository.GetByIdAsync(datosInstitucionUpdateRecord.Id);
 
-    if (datosInstitucion == null)
-    {
-        return ResultResponse<DatosInstitucionRecord>.Failure($"No se encontró la institución con el id: {datosInstitucionUpdateRecord.Id}", 404);
-    }
+    // if (datosInstitucion == null)
+    // {
+    //     return ResultResponse<DatosInstitucionRecord>.Failure($"No se encontró la institución con el id: {datosInstitucionUpdateRecord.Id}", 404);
+    // }
 
     // Actualiza las propiedades de la entidad con los valores del record
     datosInstitucion.UpdateFromRecord(datosInstitucionUpdateRecord);

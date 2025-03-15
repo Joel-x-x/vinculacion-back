@@ -21,11 +21,9 @@ public record PreguntasFrecuenteRecord(
 }
 
 public record PreguntasFrecuenteCreateRecord(
-    Guid Id,
     string Pregunta,
     string Respuesta,
-    int Prioridad,
-    bool Estaactivo
+    int Prioridad
 );
 
 public record PreguntasFrecuenteUpdateRecord(

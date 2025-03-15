@@ -81,7 +81,7 @@ public class PreguntasFrecuenteController: ControllerBase
     {
         var result = await _preguntasFrecuenteQueryService.CreatePreguntasFrecuente(preguntaFrecuenteCreateRecord);
         return result.IsSuccess
-            ? CreatedAtAction(nameof(GetPreguntaFrecuenteById), new { id = preguntaFrecuenteCreateRecord.Id }, result.Value)
+            ? CreatedAtAction(nameof(GetPreguntaFrecuenteById), new { id = result.Value.Id }, result.Value)
             : BadRequest(result.Error);
     }
 

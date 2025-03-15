@@ -53,35 +53,35 @@ public class CooperantesQueryService : ICooperantesQueryService
         return ResultResponse<CooperantesRecord>.Success(cooperanteRecord);
     }
 
-    public async Task<ResultResponse<CooperantesCreateRecord>> CreateCooperante (CooperantesCreateRecord cooperantesCreateRecord)
+    public async Task<ResultResponse<CooperantesRecord>> CreateCooperante (CooperantesCreateRecord cooperantesCreateRecord)
     {
-        if(cooperantesCreateRecord == null)
-        {
-            return ResultResponse<CooperantesCreateRecord>.Failure("Los datos del cooperante no son v�lidos", 400);
-        }
+        // if(cooperantesCreateRecord == null)
+        // {
+        //     return ResultResponse<CooperantesCreateRecord>.Failure("Los datos del cooperante no son v�lidos", 400);
+        // }
 
         var cooperante = Cooperantes.CreateFromRecord(cooperantesCreateRecord);
 
         await _cooperantesRepository.AddAsync(cooperante);
         await _cooperantesRepository.SaveAsync();
 
-        return ResultResponse<CooperantesCreateRecord>.Success(cooperantesCreateRecord, 201);
+        return ResultResponse<CooperantesRecord>.Success(new CooperantesRecord(cooperante), 201);
     }
 
-    public async Task<ResultResponse<CooperantesUpdateRecord>> UpdateCooperante(CooperantesUpdateRecord cooperantesUpdateRecord)
+    public async Task<ResultResponse<CooperantesRecord>> UpdateCooperante(CooperantesUpdateRecord cooperantesUpdateRecord)
     {
         var cooperante = await _cooperantesRepository.GetByIdAsync(cooperantesUpdateRecord.Id);
 
         if(cooperante == null)
         {
-            return ResultResponse<CooperantesUpdateRecord>.Failure($"No se encontr� el cooperante con el id: {cooperantesUpdateRecord.Id}", 404);
+            return ResultResponse<CooperantesRecord>.Failure($"No se encontr� el cooperante con el id: {cooperantesUpdateRecord.Id}", 404);
         }
 
         cooperante.UpdateFromRecord(cooperantesUpdateRecord);
 
         await _cooperantesRepository.UpdateAsync(cooperante);
 
-        return ResultResponse<CooperantesUpdateRecord>.Success(cooperantesUpdateRecord, 200);
+        return ResultResponse<CooperantesRecord>.Success(new CooperantesRecord(cooperante), 200);
     }
 
     public async Task<ResultResponse<bool>> DeleteCooperante(Guid id)
