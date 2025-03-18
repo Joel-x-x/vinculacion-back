@@ -65,7 +65,7 @@ public class DatosInstitucionController : ControllerBase{
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetDatosInstitucionById()
     {
-        Guid id = new Guid("c39bdfd0-2865-4bdd-8f13-887bc31f6f23");
+        Guid id = new Guid("bb03afcf-ac9f-48b8-b2d5-caea527c7e60");
         
         _logger.LogInformation($"Inicia el proceso para obtener el dato de institución con ID: {id}");
 
