@@ -17,7 +17,7 @@ public partial class Raza
         return new Raza
         {
             Nombre = razaCreateRecord.Nombre,
-            Estaactivo = razaCreateRecord.Estaactivo
+            Estaactivo = true
         };
     }
 

@@ -43,7 +43,7 @@ public partial class Mascota
             Idgenero = mascotaCreateRecord.Idgenero,
             Idespecie = mascotaCreateRecord.Idespecie,
             Idraza = mascotaCreateRecord.Idraza,
-            Estaactivo = mascotaCreateRecord.Estaactivo
+            Estaactivo = true
         };
     }
 

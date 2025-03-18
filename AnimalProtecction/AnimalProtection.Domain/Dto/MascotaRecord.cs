@@ -36,8 +36,7 @@ public record MascotaCreateRecord(
     string? Detalles,
     Guid Idgenero,
     Guid Idespecie,
-    Guid Idraza,
-    bool? Estaactivo
+    Guid Idraza
 );
 
 public record MascotaUpdateRecord(

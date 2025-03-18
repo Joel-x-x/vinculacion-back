@@ -18,8 +18,7 @@ public record RazaRecord
 }
 
 public record RazaCreateRecord(
-    string Nombre,
-    bool? Estaactivo
+    string Nombre
 );
 
 public record RazaUpdateRecord(

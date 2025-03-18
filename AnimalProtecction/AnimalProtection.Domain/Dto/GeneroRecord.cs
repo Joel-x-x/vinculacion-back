@@ -17,8 +17,7 @@ public record GeneroRecord(
 }
 
 public record GeneroCreateRecord(
-    string Nombre,
-    bool? Estaactivo
+    string Nombre
 );
 
 public record GeneroUpdateRecord(

@@ -22,8 +22,7 @@ public record EspecyRecord(
 }
 
 public record EspecyCreateRecord(
-    string Nombre,
-    bool? Estaactivo
+    string Nombre
 );
 
 public record EspecyUpdateRecord(

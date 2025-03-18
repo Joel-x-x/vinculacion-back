@@ -17,7 +17,7 @@ public partial class Especy
         return new Especy
         {
             Nombre = especyCreateRecord.Nombre,
-            Estaactivo = especyCreateRecord.Estaactivo
+            Estaactivo = true
         };
     }
 

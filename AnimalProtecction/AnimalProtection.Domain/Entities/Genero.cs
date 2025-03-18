@@ -17,7 +17,7 @@ public partial class Genero
         return new Genero
         {
             Nombre = generoCreateRecord.Nombre,
-            Estaactivo = generoCreateRecord.Estaactivo
+            Estaactivo = true
         };
     }
 
