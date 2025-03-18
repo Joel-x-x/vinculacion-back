@@ -43,6 +43,232 @@
             <param name="id">ID del cooperante a eliminar.</param>
             <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
         </member>
+        <member name="M:AnimalProtection.Api.Controller.DatosInstitucionController.GetAllDatosInstitucion(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de datos de institución.
+            </summary>
+            <param name="pageNumber">Número de página.</param>
+            <param name="pageSize">Tamaño de página.</param>
+            <returns>Una lista paginada de datos de institución.</returns>
+            <response code="200">Devuelve la lista de datos de institución paginados.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran datos de institución.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.DatosInstitucionController.GetDatosInstitucionById(System.Guid)">
+            <summary>
+            Obtiene un dato de institución por su ID.
+            </summary>
+            <param name="id">ID de la institución.</param>
+            <returns>El dato de institución correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.DatosInstitucionController.CreateDatosInstitucion(DatosInstitucionCreateRecord)">
+            <summary>
+            Crea un nuevo dato de institución.
+            </summary>
+            <param name="datosInstitucionCreateRecord">Datos de institución a crear.</param>
+            <returns>Institución creada.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.DatosInstitucionController.UpdateDatosInstitucion(DatosInstitucionUpdateRecord)">
+            <summary>
+            Actualiza un dato de institución existente.
+            </summary>
+            <param name="datosInstitucionUpdateRecord">Datos actualizados de la institución.</param>
+            <returns>Institución actualizada.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.DatosInstitucionController.DeleteDatosInstitucion(System.Guid)">
+            <summary>
+            Elimina un dato de institución existente.
+            </summary>
+            <param name="id">ID de la institución.</param>
+            <returns>Indica si la institución fue eliminada correctamente.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.EspecieController.GetAllEspecies(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de Especies.
+            </summary>
+            <param name="pageNumber">Número de página.</param>
+            <param name="pageSize">Tamaño de página.</param>
+            <returns>Una lista paginada de Especies.</returns>
+            <response code="200">Devuelve la lista de Especies paginados.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran Especies.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.EspecieController.GetEspecieById(System.Guid)">
+            <summary>
+            Obtiene un especie por su ID.
+            </summary>
+            <param name="id">ID del especie.</param>
+            <returns>La especie correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.EspecieController.CreateEspecie(AnimalProtection.Domain.Dto.EspecyCreateRecord)">
+            <summary>
+            Crea un nuevo especie.
+            </summary>
+            <returns>El especie creado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.EspecieController.UpdateEspecie(AnimalProtection.Domain.Dto.EspecyUpdateRecord)">
+            <summary>
+            Actualiza un especie existente.
+            </summary>
+            <returns>El especie actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.EspecieController.DeleteEspecie(System.Guid)">
+            <summary>
+            Elimina un especie por su ID.
+            </summary>
+            <param name="id">ID del especie a eliminar.</param>
+            <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.GeneroController.GetAllGeneros(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de trámites.
+            </summary>
+            <param name="pageNumber">Número de página.</param>
+            <param name="pageSize">Tamaño de página.</param>
+            <returns>Una lista paginada de cooperantes.</returns>
+            <response code="200">Devuelve la lista de cooperants paginados.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran cooperantes.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.GeneroController.GetGeneroById(System.Guid)">
+            <summary>
+            Obtiene un genero por su ID.
+            </summary>
+            <param name="id">ID del genero.</param>
+            <returns>El genero correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.GeneroController.CreateGenero(AnimalProtection.Domain.Dto.GeneroCreateRecord)">
+            <summary>
+            Crea un nuevo genero.
+            </summary>
+            <returns>El genero creado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.GeneroController.UpdateGenero(AnimalProtection.Domain.Dto.GeneroUpdateRecord)">
+            <summary>
+            Actualiza un genero existente.
+            </summary>
+            <returns>El genero actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.GeneroController.DeleteGenero(System.Guid)">
+            <summary>
+            Elimina un genero por su ID.
+            </summary>
+            <param name="id">ID del genero a eliminar.</param>
+            <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.MascotaController.GetAllMascotas(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de Mascotas.
+            </summary>
+            <param name="pageNumber">Número de página.</param>
+            <param name="pageSize">Tamaño de página.</param>
+            <returns>Una lista paginada de Mascotas.</returns>
+            <response code="200">Devuelve la lista de Mascotas paginados.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran Mascotas.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.MascotaController.GetMascotaById(System.Guid)">
+            <summary>
+            Obtiene una mascota por su ID.
+            </summary>
+            <param name="id">ID de la mascota.</param>
+            <returns>El mascota correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.MascotaController.CreateMascota(AnimalProtection.Domain.Dto.MascotaCreateRecord)">
+            <summary>
+            Crea un nuevo mascota.
+            </summary>
+            <returns>El mascota creado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.MascotaController.UpdateMascota(AnimalProtection.Domain.Dto.MascotaUpdateRecord)">
+            <summary>
+            Actualiza una mascota existente.
+            </summary>
+            <returns>La mascota actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.MascotaController.DeleteMascota(System.Guid)">
+            <summary>
+            Elimina un mascota por su ID.
+            </summary>
+            <param name="id">ID de la mascota a eliminar.</param>
+            <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.PreguntasFrecuenteController.GetAllPreguntasFrecuente(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de Preguntas Frecuentes.
+            </summary>
+            <param name="pageNumber">Número de página.</param>
+            <param name="pageSize">Tamaño de página.</param>
+            <returns>Una lista paginada de Preguntas Frecuentes.</returns>
+            <response code="200">Devuelve la lista de Preguntas Frecuentes paginados.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran Preguntas Frecuentes.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.PreguntasFrecuenteController.GetPreguntaFrecuenteById(System.Guid)">
+            <summary>
+            Obtiene un  Pregunta Frecuente por su ID.
+            </summary>
+            <param name="id">ID del Pregunta Frecuente.</param>
+            <returns>El  Pregunta Frecuente correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.PreguntasFrecuenteController.CreatePreguntaFrecuente(AnimalProtection.Domain.Dto.PreguntasFrecuenteCreateRecord)">
+            <summary>
+            Crea un nuevo  Pregunta Frecuente.
+            </summary>
+            <param name="preguntaFrecuenteCreateRecord">Datos del Pregunta Frecuente a crear.</param>
+            <returns>El Pregunta Frecuente creado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.PreguntasFrecuenteController.UpdatePreguntaFrecuente(AnimalProtection.Domain.Dto.PreguntasFrecuenteUpdateRecord)">
+            <summary>
+            Actualiza un Pregunta Frecuente existente.
+            </summary>
+            <param name="preguntaFrecuenteUpdateRecord">Datos actualizados del Pregunta Frecuente.</param>
+            <returns>El Pregunta Frecuente actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.PreguntasFrecuenteController.DeletePreguntaFrecuente(System.Guid)">
+            <summary>
+            Elimina un Pregunta Frecuente por su ID.
+            </summary>
+            <param name="id">ID del Pregunta Frecuente a eliminar.</param>
+            <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.RazaController.GetAllRazas(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de Razas.
+            </summary>
+            <param name="pageNumber">Número de página.</param>
+            <param name="pageSize">Tamaño de página.</param>
+            <returns>Una lista paginada de Razas.</returns>
+            <response code="200">Devuelve la lista de Razas paginados.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran Razas.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.RazaController.GetRazaById(System.Guid)">
+            <summary>
+            Obtiene una raza por su ID.
+            </summary>
+            <param name="id">ID de la raza.</param>
+            <returns>La raza correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.RazaController.CreateRaza(AnimalProtection.Domain.Dto.RazaCreateRecord)">
+            <summary>
+            Crea una nueva raza.
+            </summary>
+            <returns>La raza creada.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.RazaController.UpdateRaza(AnimalProtection.Domain.Dto.RazaUpdateRecord)">
+            <summary>
+            Actualiza un raza existente.
+            </summary>
+            <returns>La raza actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.RazaController.DeleteRaza(System.Guid)">
+            <summary>
+            Elimina un raza por su ID.
+            </summary>
+            <param name="id">ID del raza a eliminar.</param>
+            <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
+        </member>
         <member name="M:AnimalProtection.Api.Controller.TramiteController.GetAllTramites(System.Int32,System.Int32)">
             <summary>
             Obtiene una lista paginada de trámites.
