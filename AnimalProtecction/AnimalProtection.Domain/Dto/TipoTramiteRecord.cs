@@ -10,11 +10,9 @@ public record TipoTramiteRecord(
 
 public record TipoTramiteCreateRecord(
     string Nombre,
-    bool? Estaactivo
 );
 
 public record TipoTramiteUpdateRecord(
     Guid Id,
     string? Nombre,
-    bool? Estaactivo
 );
