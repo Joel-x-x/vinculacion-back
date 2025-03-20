@@ -15,7 +15,7 @@ public record TramiteRecord(
     Guid Idtipotramite,
     Guid Idestadotramite,
     bool Estaactivo,
-    TipoTramiteRecord Tipotramite,
+    TiposTramiteRecord Tipotramite,
     EstadostramiteRecord Estadostramite,
     List<ArchivostramiteRecord> Archivostramites
 )
@@ -33,7 +33,7 @@ public record TramiteRecord(
         tramite.Idtipotramite,
         tramite.Idestadotramite,
         tramite.Estaactivo ?? false,
-        new TipoTramiteRecord(
+        new TiposTramiteRecord(
             tramite.Idtipotramite,
             tramite.IdtipotramiteNavigation?.Nombre ?? "",
             tramite.IdtipotramiteNavigation?.Estaactivo ?? false

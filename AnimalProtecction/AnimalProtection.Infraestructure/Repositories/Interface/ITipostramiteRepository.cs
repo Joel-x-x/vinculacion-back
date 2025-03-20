@@ -1,7 +1,7 @@
 using AnimalProtecction.GenericRepository;
 using AnimalProtection.Domain.Entities;
 
-namespace AnimalProtecction.Generated.Repositories.Interface;
+namespace AnimalProtection.Repositories.Interface;
 
 public interface ITipostramiteRepository : IGenericRepository<Tipostramite>
 {

@@ -3,6 +3,7 @@ using AnimalProtection.Application.Querys.Interface;
 using AnimalProtection.Domain.Dto;
 using AnimalProtection.Domain.Entities;
 using AnimalProtection.Domain.Result;
+using AnimalProtection.Repositories.Interface;
 using EntityFrameworkCore.Paginate;
 using Microsoft.EntityFrameworkCore;
 
@@ -46,12 +47,12 @@ public class EstadostramiteQueryService : IEstadostramiteQueryService
     {
         var estadostramite = await _estadostramiteRepository.GetByIdAsync(id);
         
-        if (estadostramite  == null)
-        {
-            return ResultResponse<EstadostramiteRecord>.Failure($"No se encontró el trámite con el id: {id}", 404);
-        }
+        // if (estadostramite  == null)
+        // {
+        //     return ResultResponse<EstadostramiteRecord>.Failure($"No se encontró el trámite con el id: {id}", 404);
+        // }
 
-        EstadostramiteRecord estadostramiteRecord = new EstadostramiteRecord(Estadostramite);
+        EstadostramiteRecord estadostramiteRecord = new EstadostramiteRecord(estadostramite);
         
         return ResultResponse<EstadostramiteRecord>.Success(estadostramiteRecord);
     }

@@ -63,7 +63,7 @@ public class TipostramiteController: ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetTipostramiteById(Guid id)
     {
-        var result = await _tipostramiteQueryService.GetTipostramiteById<TipostramiteRecord>(id);
+        var result = await _tipostramiteQueryService.GetTipostramiteById<TiposTramiteRecord>(id);
         return result.IsSuccess ? Ok(result.Value) : NotFound(result.Error);
     }
 
@@ -75,7 +75,7 @@ public class TipostramiteController: ControllerBase
     [HttpPost("CreateTipostramite")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> CreateTipostramite([FromBody] TipostramiteCreateRecord tramiteCreateRecord)
+    public async Task<IActionResult> CreateTipostramite([FromBody] TiposTramiteCreateRecord tramiteCreateRecord)
     {
         var result = await _tipostramiteQueryService.CreateTipostramite(tramiteCreateRecord);
         return result.IsSuccess
@@ -92,7 +92,7 @@ public class TipostramiteController: ControllerBase
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> UpdateTipostramite([FromBody] TipostramiteUpdateRecord tipostramiteUpdateRecord)
+    public async Task<IActionResult> UpdateTipostramite([FromBody] TiposTramiteUpdateRecord tipostramiteUpdateRecord)
     {
         var result = await _tipostramiteQueryService.UpdateTipostramite(tipostramiteUpdateRecord);
         return result.IsSuccess ? Ok(result.Value) : NotFound(result.Error);

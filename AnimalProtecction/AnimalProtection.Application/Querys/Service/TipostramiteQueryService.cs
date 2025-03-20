@@ -1,26 +1,17 @@
-using AnimalProtecction.Generated.Repositories.Interface;
 using AnimalProtection.Application.Querys.Interface;
 using AnimalProtection.Domain.Dto;
 using AnimalProtection.Domain.Entities;
 using AnimalProtection.Domain.Result;
-using EntityFrameworkCore.Paginate;
+using AnimalProtection.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 
 namespace AnimalProtection.Application.Querys.Service;
 
-public class TipostramiteQueryService : ITipostramiteQueryService
+public class TipostramiteQueryService(ITipostramiteRepository tipostramiteRepository) : ITipostramiteQueryService
 {
-
-    private readonly ITipostramiteRepository _tipostramiteRepository;
-    
-    public TipostramiteQueryService(ITipostramiteRepository tipostramiteRepository)
+    public async Task<ResultResponse<PagedResponseRecord<TiposTramiteRecord>>> GetAllTipostramite(int pageNumber, int pageSize)
     {
-        _tipostramiteRepository = tipostramiteRepository;
-    }
-    
-    public async Task<ResultResponse<PagedResponseRecord<TipostramiteRecord>>> GetAllTipostramite(int pageNumber, int pageSize)
-    {
-        IQueryable<Tipostramite> query = _tipostramiteRepository.GetPageableAsync()
+        IQueryable<Tipostramite> query = tipostramiteRepository.GetPageableAsync()
             .Where(t => t.Estaactivo == true);
 
         // Obtener el total de registros antes de la paginación
@@ -33,30 +24,30 @@ public class TipostramiteQueryService : ITipostramiteQueryService
             .ToListAsync();
 
         // Mapear Tipostramite a TipostramiteRecord
-        List<TipostramiteRecord> tipostramiteRecords = pagedResult.Select(t => new TipostramiteRecord(t)).ToList();
-        PagedResponseRecord<TipostramiteRecord> response = new PagedResponseRecord<TipostramiteRecord>(
+        List<TiposTramiteRecord> tipostramiteRecords = pagedResult.Select(t => new TiposTramiteRecord(t)).ToList();
+        PagedResponseRecord<TiposTramiteRecord> response = new PagedResponseRecord<TiposTramiteRecord>(
             tipostramiteRecords, pageNumber, pageSize, totalRecords, 
             (int)Math.Ceiling((double)totalRecords / pageSize)
         );
 
-        return ResultResponse<PagedResponseRecord<TipostramiteRecord>>.Success(response);
+        return ResultResponse<PagedResponseRecord<TiposTramiteRecord>>.Success(response);
     }
 
-    public async Task<ResultResponse<TipostramiteRecord>> GetTipostramiteById<T>(Guid id)
+    public async Task<ResultResponse<TiposTramiteRecord>> GetTipostramiteById<T>(Guid id)
     {
-        var tipostramite = await _tipostramiteRepository.GetByIdAsync(id);
+        var tipostramite = await tipostramiteRepository.GetByIdAsync(id);
         
         if (tipostramite  == null)
         {
-            return ResultResponse<TipostramiteRecord>.Failure($"No se encontró el trámite con el id: {id}", 404);
+            return ResultResponse<TiposTramiteRecord>.Failure($"No se encontró el trámite con el id: {id}", 404);
         }
 
-        TipostramiteRecord tipostramiteRecord = new TipostramiteRecord(Tipostramite);
+        TiposTramiteRecord tipostramiteRecord = new TiposTramiteRecord(tipostramite);
         
-        return ResultResponse<TipostramiteRecord>.Success(tipostramiteRecord);
+        return ResultResponse<TiposTramiteRecord>.Success(tipostramiteRecord);
     }
 
-    public async Task<ResultResponse<TipostramiteRecord>> CreateTipostramite(TipostramiteCreateRecord tipostramiteCreateRecord)
+    public async Task<ResultResponse<TiposTramiteRecord>> CreateTipostramite(TiposTramiteCreateRecord tipostramiteCreateRecord)
     {
         // TODO: Validar los datos del trámite
 
@@ -64,17 +55,17 @@ public class TipostramiteQueryService : ITipostramiteQueryService
         var tipostramite = Tipostramite.CreateFromRecord(tipostramiteCreateRecord);
 
         // Guardar el trámite en la base de datos
-        await _tipostramiteRepository.AddAsync(tipostramite);
-        await _tipostramiteRepository.SaveAsync();
+        await tipostramiteRepository.AddAsync(tipostramite);
+        await tipostramiteRepository.SaveAsync();
 
         // Devolver el trámite creado como respuesta
-        return ResultResponse<TipostramiteRecord>.Success(new TipostramiteRecord(tipostramite), 201);
+        return ResultResponse<TiposTramiteRecord>.Success(new TiposTramiteRecord(tipostramite), 201);
     }
 
-    public async Task<ResultResponse<TipostramiteRecord>> UpdateTipostramite(TipostramiteUpdateRecord tipostramiteUpdateRecord)
+    public async Task<ResultResponse<TiposTramiteRecord>> UpdateTipostramite(TiposTramiteUpdateRecord tipostramiteUpdateRecord)
     {
         // TODO: Validar los datos del trámite
-        var tipostramite = await _tipostramiteRepository.GetByIdAsync(tipostramiteUpdateRecord.Id);
+        var tipostramite = await tipostramiteRepository.GetByIdAsync(tipostramiteUpdateRecord.Id);
 
         // if (Tipostramite == null)
         // {
@@ -83,23 +74,23 @@ public class TipostramiteQueryService : ITipostramiteQueryService
         
         tipostramite.UpdateFromRecord(tipostramiteUpdateRecord);
         
-        await _tipostramiteRepository.UpdateAsync(tipostramite);
+        await tipostramiteRepository.UpdateAsync(tipostramite);
         
-        return ResultResponse<TipostramiteRecord>.Success(new TipostramiteRecord(tipostramite), 200);
+        return ResultResponse<TiposTramiteRecord>.Success(new TiposTramiteRecord(tipostramite), 200);
     }
 
     public async Task<ResultResponse<bool>> DeleteTipostramite(Guid id)
     {
-        var tipostramite = await _tipostramiteRepository.GetByIdAsync(id);
+        var tipostramite = await tipostramiteRepository.GetByIdAsync(id);
         
-        if (tipostramite == null)
-        {
-            return ResultResponse<bool>.Failure($"No se encontró el trámite con el id: {id}", 404);
-        }
+        // if (tipostramite == null)
+        // {
+        //     return ResultResponse<bool>.Failure($"No se encontró el trámite con el id: {id}", 404);
+        // }
 
         tipostramite.eliminar();
         
-        await _tipostramiteRepository.UpdateAsync(tipostramite);
+        await tipostramiteRepository.UpdateAsync(tipostramite);
         
         return ResultResponse<bool>.Success(true, 200);
     }

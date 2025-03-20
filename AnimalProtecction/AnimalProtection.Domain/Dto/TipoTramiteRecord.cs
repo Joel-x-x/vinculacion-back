@@ -2,17 +2,22 @@ using AnimalProtection.Domain.Entities;
 
 namespace AnimalProtection.Domain.Dto;
 
-public record TipoTramiteRecord(
+public record TiposTramiteRecord(
     Guid Id,
     string Nombre,
     bool Estaactivo
-);
+)
+{
+    public TiposTramiteRecord(Tipostramite tipostramite) : this(tipostramite.Id, tipostramite.Nombre, tipostramite.Estaactivo??false)
+    {
+    }
+};
 
-public record TipoTramiteCreateRecord(
+public record TiposTramiteCreateRecord(
     string Nombre
 );
 
-public record TipoTramiteUpdateRecord(
+public record TiposTramiteUpdateRecord(
     Guid Id,
     string? Nombre
 );
