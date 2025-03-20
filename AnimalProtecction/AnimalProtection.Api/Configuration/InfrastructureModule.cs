@@ -25,7 +25,7 @@ public class InfrastructureModule : Module
             .As<ITipostramiteRepository>();
 
         builder.RegisterType<EstadostramiteRepository>()
-            .As<ITipostramiteRepository>();
+            .As<IEstadostramiteRepository>();
 
         builder.RegisterType<PreguntasFrecuenteRepository>()
             .As<IPreguntasFrecuenteRepository>();
