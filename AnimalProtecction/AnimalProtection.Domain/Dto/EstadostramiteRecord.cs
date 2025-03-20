@@ -9,11 +9,11 @@ public record EstadostramiteRecord(
 
 public record EstadostramiteCreateRecord(
     string Nombre,
-    int Orden,
+    int Orden
 );
 
 public record EstadostramiteUpdateRecord(
     Guid Id,
     string? Nombre,
-    int? Orden,
+    int? Orden
 );

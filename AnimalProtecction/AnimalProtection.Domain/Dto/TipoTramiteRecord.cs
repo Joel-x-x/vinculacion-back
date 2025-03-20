@@ -9,10 +9,10 @@ public record TipoTramiteRecord(
 );
 
 public record TipoTramiteCreateRecord(
-    string Nombre,
+    string Nombre
 );
 
 public record TipoTramiteUpdateRecord(
     Guid Id,
-    string? Nombre,
+    string? Nombre
 );
