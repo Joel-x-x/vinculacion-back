@@ -18,6 +18,12 @@ public class ApplicationModule : Module
             
         builder.RegisterType<TramiteQueryService>()
              .As<ITramiteQueryService>();
+
+        builder.RegisterType<TipostramiteQueryService>()
+             .As<ITipostramiteQueryService>();
+
+        builder.RegisterType<EstadostramiteQueryService>()
+             .As<IEstadostramiteQueryService>();
   
         builder.RegisterType<PreguntasFrecuenteQueryService>()
              .As<IPreguntasFrecuenteQueryService>();

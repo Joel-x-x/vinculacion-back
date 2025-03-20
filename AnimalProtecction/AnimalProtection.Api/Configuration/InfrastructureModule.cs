@@ -20,7 +20,13 @@ public class InfrastructureModule : Module
             
         builder.RegisterType<TramiteRepository>()
             .As<ITramiteRepository>();
-            
+
+        builder.RegisterType<TipostramitesRepository>()
+            .As<ITipostramitesRepository>();
+
+        builder.RegisterType<EstadostramitesRepository>()
+            .As<IEstadostramitesRepository>();
+
         builder.RegisterType<PreguntasFrecuenteRepository>()
             .As<IPreguntasFrecuenteRepository>();
             
