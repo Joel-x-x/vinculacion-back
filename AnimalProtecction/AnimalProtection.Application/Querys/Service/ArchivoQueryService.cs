@@ -20,11 +20,11 @@ namespace AnimalProtection.Application.Querys.Service
         {
             var archivo = new Archivo
             {
-                Id = createRecord.Id ?? Guid.NewGuid(),
+                Id = Guid.NewGuid(),
                 Url = createRecord.Url,
                 Formato = createRecord.Formato,
                 Idtipoarchivo = createRecord.Idtipoarchivo,
-                Estaactivo = createRecord.Estaactivo ?? true
+                Estaactivo = true
             };
 
             await _repository.AddAsync(archivo);
@@ -73,26 +73,19 @@ namespace AnimalProtection.Application.Querys.Service
         public async Task<ResultResponse<ArchivoRecord>> GetArchivoById<T>(Guid id)
         {
             var archivo = await _repository.GetByIdAsync(id);
-            if (archivo == null)
-            {
-                return ResultResponse<ArchivoRecord>.Failure($"No se encontró el archivo con id: {id}", 404);
-            }
+
             return ResultResponse<ArchivoRecord>.Success(new ArchivoRecord(archivo));
         }
 
         public async Task<ResultResponse<ArchivoUpdateRecord>> UpdateArchivo(ArchivoUpdateRecord updateRecord)
         {
             var archivo = await _repository.GetByIdAsync(updateRecord.Id);
-            if (archivo == null)
-            {
-                return ResultResponse<ArchivoUpdateRecord>.Failure($"No se encontró el archivo con id: {updateRecord.Id}", 404);
-            }
+
             // Actualiza campos
             archivo.Url = updateRecord.Url;
             archivo.Formato = updateRecord.Formato;
             archivo.Idtipoarchivo = updateRecord.Idtipoarchivo;
-            if (updateRecord.Estaactivo.HasValue)
-                archivo.Estaactivo = updateRecord.Estaactivo;
+            archivo.Estaactivo = true;
 
             await _repository.UpdateAsync(archivo);
             await _repository.SaveAsync();

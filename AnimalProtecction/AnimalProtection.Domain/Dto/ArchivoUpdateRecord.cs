@@ -4,7 +4,6 @@ namespace AnimalProtection.Domain.Dto
         Guid Id,
         string Url,
         string Formato,
-        Guid Idtipoarchivo,
-        bool? Estaactivo
+        Guid Idtipoarchivo
     );
 }

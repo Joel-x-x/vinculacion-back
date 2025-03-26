@@ -1,8 +1,8 @@
+using AnimalProtecction.Generated;
 using AnimalProtecction.GenericRepository;
 using AnimalProtection.Domain.Entities;
-using AnimalProtection.Repositories.Interface;
 
-namespace AnimalProtection.Generated.Repositories.Repository
+namespace AnimalProtection.Repositories.Interface
 {
     public class TiposArchivoRepository : GenericRepository<Tiposarchivo>, ITiposArchivoRepository
     {
