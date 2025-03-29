@@ -45,13 +45,14 @@ public class ApplicationModule : Module
             
         builder.RegisterType<MascotaQueryService>()
             .As<IMascotaQueryService>();
+        
+        builder.RegisterType<MenuQueryService>()
+            .As<IMenuQueryService>();
 
         builder.RegisterType<ArchivoQueryService>()
             .As<IArchivoQueryService>();
             
         builder.RegisterType<TiposArchivoQueryService>()
             .As<ITiposArchivoQueryService>();
-
-
     }
 }

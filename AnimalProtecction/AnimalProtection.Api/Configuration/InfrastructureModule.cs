@@ -47,12 +47,14 @@ public class InfrastructureModule : Module
             
         builder.RegisterType<MascotaRepository>()
             .As<IMascotaRepository>();
+        
+        builder.RegisterType<MenuRepository>()
+            .As<IMenuRepository>();
 
         builder.RegisterType<ArchivoRepository>()
             .As<IArchivoRepository>();
             
         builder.RegisterType<TiposArchivoRepository>()
             .As<ITiposArchivoRepository>();
-
     }
 }
