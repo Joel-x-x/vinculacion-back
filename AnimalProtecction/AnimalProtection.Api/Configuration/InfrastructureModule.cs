@@ -47,5 +47,9 @@ public class InfrastructureModule : Module
             
         builder.RegisterType<MascotaRepository>()
             .As<IMascotaRepository>();
+            
+        builder.RegisterType<RolRepository>()
+            .As<IRolRepository>();
+        
     }
 }

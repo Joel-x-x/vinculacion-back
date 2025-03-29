@@ -1,9 +1,8 @@
 using AnimalProtecction.Generated.Repositories.Interface;
-using AnimalProtecction.Application.Querys.Interface;
+using AnimalProtection.Application.Querys.Interface;
 using AnimalProtection.Domain.Entities;
 using AnimalProtection.Domain.Dto;
 using AnimalProtection.Domain.Result;
-using EntityFrameworkCore.Paginate;
 using Microsoft.EntityFrameworkCore;
 
 namespace AnimalProtection.Application.Querys.Service;
@@ -60,7 +59,7 @@ public class RolService : IRolService{
         var rol = Rol.CreateFromRecord(rolRecord);
 
         await _rolRepository.AddAsync(rol);
-        await _rolRepository.SaveChangesAsync();
+        await _rolRepository.SaveAsync();
 
         return ResultResponse<RolRecord>.Success(new RolRecord(rol));
     }

@@ -2,13 +2,13 @@ using AnimalProtection.Domain.Entities;
 
 namespace AnimalProtection.Domain.Dto{
 
-    public record RolRecord{
+    public record RolRecord (
         Guid Id,
         string Nombre,
         string? Descripcion,
         bool? Esadministrador,
         bool? Estaactivo
-    }
+    )
     {
         public RolRecord(Rol rol) : this(
             rol.Id,

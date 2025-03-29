@@ -1,7 +1,7 @@
 using AnimalProtection.Domain.Dto;
 using AnimalProtection.Domain.Result;
 
-namespace AnimalProtection.Application.Querys.Service;
+namespace AnimalProtection.Application.Querys.Interface;
 
 public interface IRolService
 {
