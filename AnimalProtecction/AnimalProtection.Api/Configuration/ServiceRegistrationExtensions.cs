@@ -48,5 +48,17 @@ public class ApplicationModule : Module
             
         builder.RegisterType<RolService>()
             .As<IRolService>();
+
+        builder.RegisterType<AdopcionesQueryService>()
+            .As<IAdopcionesQueryService>();
+        
+        builder.RegisterType<MenuQueryService>()
+            .As<IMenuQueryService>();
+
+        builder.RegisterType<ArchivoQueryService>()
+            .As<IArchivoQueryService>();
+            
+        builder.RegisterType<TiposArchivoQueryService>()
+            .As<ITiposArchivoQueryService>();
     }
 }

@@ -50,6 +50,17 @@ public class InfrastructureModule : Module
             
         builder.RegisterType<RolRepository>()
             .As<IRolRepository>();
+
+        builder.RegisterType<AdopcionesRepository>()
+            .As<IAdopcionesRepository>();
         
+        builder.RegisterType<MenuRepository>()
+            .As<IMenuRepository>();
+
+        builder.RegisterType<ArchivoRepository>()
+            .As<IArchivoRepository>();
+            
+        builder.RegisterType<TiposArchivoRepository>()
+            .As<ITiposArchivoRepository>();
     }
 }
