@@ -45,6 +45,9 @@ public class ApplicationModule : Module
             
         builder.RegisterType<MascotaQueryService>()
             .As<IMascotaQueryService>();
+
+        builder.RegisterType<AdopcionesQueryService>()
+            .As<IAdopcionesQueryService>();
         
         builder.RegisterType<MenuQueryService>()
             .As<IMenuQueryService>();
