@@ -50,5 +50,14 @@ public class InfrastructureModule : Module
 
         builder.RegisterType<AdopcionesRepository>()
             .As<IAdopcionesRepository>();
+        
+        builder.RegisterType<MenuRepository>()
+            .As<IMenuRepository>();
+
+        builder.RegisterType<ArchivoRepository>()
+            .As<IArchivoRepository>();
+            
+        builder.RegisterType<TiposArchivoRepository>()
+            .As<ITiposArchivoRepository>();
     }
 }

@@ -11,4 +11,10 @@ public partial class Tiposarchivo
     public bool? Estaactivo { get; set; }
 
     public virtual ICollection<Archivo> Archivos { get; set; } = new List<Archivo>();
+
+   
+    public void Delete()
+    {
+        Estaactivo = false;
+    }
 }
