@@ -1,6 +1,7 @@
 using System.Net;
 using AnimalProtection.Application.Querys.Interface;
 using AnimalProtection.Domain.Dto;
+using AnimalProtection.Domain.Result;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AnimalProtection.Api.Controller;

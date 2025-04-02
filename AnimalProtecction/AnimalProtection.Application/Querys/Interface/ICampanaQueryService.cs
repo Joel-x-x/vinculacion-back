@@ -5,9 +5,9 @@ namespace AnimalProtection.Application.Querys.Interface;
 
 public interface ICampanaQueryService
 {
-    Task<Result<PagedResult<CampanaRecord>>> GetAllCampanas(int pageNumber, int pageSize);
-    Task<Result<T>> GetCampanaById<T>(Guid id) where T : class;
-    Task<Result<CampanaRecord>> CreateCampana(CampanaCreateRecord campanaCreateRecord);
-    Task<Result<CampanaRecord>> UpdateCampana(Guid id, CampanaUpdateRecord campanaUpdateRecord);
-    Task<Result<bool>> DeleteCampana(Guid id);
+    Task<ResultResponse<PagedResponseRecord<CampanaRecord>>> GetAllCampanas(int pageNumber, int pageSize);
+    Task<ResultResponse<T>> GetCampanaById<T>(Guid id) where T : class;
+    Task<ResultResponse<CampanaRecord>> CreateCampana(CampanaCreateRecord campanaCreateRecord);
+    Task<ResultResponse<CampanaRecord>> UpdateCampana(Guid id, CampanaUpdateRecord campanaUpdateRecord);
+    Task<ResultResponse<bool>> DeleteCampana(Guid id);
 } 

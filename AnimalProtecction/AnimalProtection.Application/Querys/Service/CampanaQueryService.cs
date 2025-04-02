@@ -3,8 +3,6 @@ using AnimalProtection.Domain.Dto;
 using AnimalProtection.Domain.Entities;
 using AnimalProtection.Domain.Result;
 using AnimalProtecction.Generated;
-using AnimalProtecction.Generated.Repositories.Interface;
-using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -13,20 +11,17 @@ namespace AnimalProtection.Application.Querys.Service;
 public class CampanaQueryService : ICampanaQueryService
 {
     private readonly ILogger<CampanaQueryService> _logger;
-    private readonly IMapper _mapper;
     private readonly AnimalprotectionContext _context;
 
     public CampanaQueryService(
         ILogger<CampanaQueryService> logger,
-        IMapper mapper,
         AnimalprotectionContext context)
     {
         _logger = logger;
-        _mapper = mapper;
         _context = context;
     }
 
-    public async Task<Result<PagedResult<CampanaRecord>>> GetAllCampanas(int pageNumber, int pageSize)
+    public async Task<ResultResponse<PagedResponseRecord<CampanaRecord>>> GetAllCampanas(int pageNumber, int pageSize)
     {
         try
         {
@@ -51,24 +46,24 @@ public class CampanaQueryService : ICampanaQueryService
                 ))
                 .ToListAsync();
 
-            var result = new PagedResult<CampanaRecord>
-            {
-                Items = items,
-                Total = total,
-                PageNumber = pageNumber,
-                PageSize = pageSize
-            };
+            var result = new PagedResponseRecord<CampanaRecord>(
+                items,
+                pageNumber,
+                pageSize,
+                total,
+                (int)Math.Ceiling((double)total / pageSize)
+            );
 
-            return Result<PagedResult<CampanaRecord>>.Success(result);
+            return ResultResponse<PagedResponseRecord<CampanaRecord>>.Success(result);
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error al obtener las campañas");
-            return Result<PagedResult<CampanaRecord>>.Failure("Error al obtener las campañas");
+            return ResultResponse<PagedResponseRecord<CampanaRecord>>.Failure("Error al obtener las campañas");
         }
     }
 
-    public async Task<Result<T>> GetCampanaById<T>(Guid id) where T : class
+    public async Task<ResultResponse<T>> GetCampanaById<T>(Guid id) where T : class
     {
         try
         {
@@ -88,18 +83,23 @@ public class CampanaQueryService : ICampanaQueryService
                 .FirstOrDefaultAsync();
 
             if (campana == null)
-                return Result<T>.Failure("Campaña no encontrada");
+                return ResultResponse<T>.Failure("Campaña no encontrada", 404);
 
-            return Result<T>.Success(_mapper.Map<T>(campana));
+            if (typeof(T) == typeof(CampanaRecord))
+            {
+                return ResultResponse<T>.Success((T)(object)campana);
+            }
+            
+            return ResultResponse<T>.Failure("Tipo no soportado", 400);
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error al obtener la campaña");
-            return Result<T>.Failure("Error al obtener la campaña");
+            return ResultResponse<T>.Failure("Error al obtener la campaña");
         }
     }
 
-    public async Task<Result<CampanaRecord>> CreateCampana(CampanaCreateRecord campanaCreateRecord)
+    public async Task<ResultResponse<CampanaRecord>> CreateCampana(CampanaCreateRecord campanaCreateRecord)
     {
         try
         {
@@ -123,11 +123,11 @@ public class CampanaQueryService : ICampanaQueryService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error al crear la campaña");
-            return Result<CampanaRecord>.Failure("Error al crear la campaña");
+            return ResultResponse<CampanaRecord>.Failure("Error al crear la campaña");
         }
     }
 
-    public async Task<Result<CampanaRecord>> UpdateCampana(Guid id, CampanaUpdateRecord campanaUpdateRecord)
+    public async Task<ResultResponse<CampanaRecord>> UpdateCampana(Guid id, CampanaUpdateRecord campanaUpdateRecord)
     {
         try
         {
@@ -135,7 +135,7 @@ public class CampanaQueryService : ICampanaQueryService
                 .FirstOrDefaultAsync(c => c.Id == id && c.Estaactivo == true);
 
             if (campana == null)
-                return Result<CampanaRecord>.Failure("Campaña no encontrada");
+                return ResultResponse<CampanaRecord>.Failure("Campaña no encontrada", 404);
 
             campana.Titulo = campanaUpdateRecord.Titulo;
             campana.Cuerpo = campanaUpdateRecord.Cuerpo;
@@ -152,11 +152,11 @@ public class CampanaQueryService : ICampanaQueryService
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error al actualizar la campaña");
-            return Result<CampanaRecord>.Failure("Error al actualizar la campaña");
+            return ResultResponse<CampanaRecord>.Failure("Error al actualizar la campaña");
         }
     }
 
-    public async Task<Result<bool>> DeleteCampana(Guid id)
+    public async Task<ResultResponse<bool>> DeleteCampana(Guid id)
     {
         try
         {
@@ -164,17 +164,17 @@ public class CampanaQueryService : ICampanaQueryService
                 .FirstOrDefaultAsync(c => c.Id == id && c.Estaactivo == true);
 
             if (campana == null)
-                return Result<bool>.Failure("Campaña no encontrada");
+                return ResultResponse<bool>.Failure("Campaña no encontrada", 404);
 
             campana.Estaactivo = false;
             await _context.SaveChangesAsync();
 
-            return Result<bool>.Success(true);
+            return ResultResponse<bool>.Success(true);
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error al eliminar la campaña");
-            return Result<bool>.Failure("Error al eliminar la campaña");
+            return ResultResponse<bool>.Failure("Error al eliminar la campaña");
         }
     }
 } 
