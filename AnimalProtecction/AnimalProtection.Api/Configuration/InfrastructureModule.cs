@@ -47,11 +47,5 @@ public class InfrastructureModule : Module
             
         builder.RegisterType<MascotaRepository>()
             .As<IMascotaRepository>();
-
-        builder.RegisterType<CampanaRepository>()
-            .As<ICampanaRepository>();
-
-        builder.RegisterType<TiposCampanaRepository>()
-            .As<ITiposCampanaRepository>();
     }
 }
