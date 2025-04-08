@@ -47,20 +47,8 @@ public class InfrastructureModule : Module
             
         builder.RegisterType<MascotaRepository>()
             .As<IMascotaRepository>();
-            
-        builder.RegisterType<RolRepository>()
-            .As<IRolRepository>();
-
-        builder.RegisterType<AdopcionesRepository>()
-            .As<IAdopcionesRepository>();
         
-        builder.RegisterType<MenuRepository>()
-            .As<IMenuRepository>();
-
-        builder.RegisterType<ArchivoRepository>()
-            .As<IArchivoRepository>();
-            
-        builder.RegisterType<TiposArchivoRepository>()
-            .As<ITiposArchivoRepository>();
+        builder.RegisterType<CooperantesRepository>()
+            .As<ICooperantesRepository>();
     }
 }

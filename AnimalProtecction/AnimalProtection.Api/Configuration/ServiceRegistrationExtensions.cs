@@ -1,6 +1,7 @@
 using AnimalProtection.Application.Commands.Token;
 using AnimalProtection.Application.Querys.Interface;
 using AnimalProtection.Application.Querys.Service;
+using AnimalProtection.Repositories.Repository;
 using Autofac;
 using Module = Autofac.Module;
 
@@ -60,5 +61,8 @@ public class ApplicationModule : Module
             
         builder.RegisterType<TiposArchivoQueryService>()
             .As<ITiposArchivoQueryService>();
+        
+        builder.RegisterType<CooperantesQueryService>()
+            .As<ICooperantesQueryService>();
     }
 }
