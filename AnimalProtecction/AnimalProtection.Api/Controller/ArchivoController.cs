@@ -64,7 +64,7 @@ namespace AnimalProtection.Api.Controller
         {
             var result = await _archivoService.CreateArchivo(createRecord);
             return result.IsSuccess
-                ? CreatedAtAction(nameof(GetArchivoById), new { id = createRecord.Id }, result.Value)
+                ? CreatedAtAction(nameof(GetArchivoById), new { id = "" }, result.Value)
                 : BadRequest(result.Error);
         }
 
