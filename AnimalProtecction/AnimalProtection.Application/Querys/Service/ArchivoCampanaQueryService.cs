@@ -23,69 +23,71 @@ public class ArchivoCampanaQueryService : IArchivoCampanaQueryService
 
     public async Task<ResultResponse<List<ArchivoCampanaRecord>>> GetArchivosByCampanaId(Guid campanaId)
     {
-        try
-        {
-            var archivos = await _context.Archivoscampanas
-                .Include(ac => ac.IdcampanaNavigation)
-                .Include(ac => ac.IdarchivoNavigation)
-                .Where(ac => ac.Idcampana == campanaId && ac.Estaactivo == true)
-                .Select(ac => new ArchivoCampanaRecord(
-                    ac.Id,
-                    ac.Idarchivo,
-                    ac.Descripcion,
-                    ac.Idcampana,
-                    ac.Estaactivo,
-                    ac.IdarchivoNavigation != null ? new ArchivoRecord(
-                        ac.IdarchivoNavigation.Id,
-                        ac.IdarchivoNavigation.Url,
-                        ac.IdarchivoNavigation.Formato,
-                        ac.IdarchivoNavigation.Idtipoarchivo,
-                        ac.IdarchivoNavigation.Estaactivo
-                    ) : null
-                ))
-                .ToListAsync();
-
-            return ResultResponse<List<ArchivoCampanaRecord>>.Success(archivos);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error al obtener archivos de campaña");
-            return ResultResponse<List<ArchivoCampanaRecord>>.Failure("Error al obtener archivos de campaña");
-        }
+        return null;
+        // try
+        // {
+        //     var archivos = await _context.Archivoscampanas
+        //         .Include(ac => ac.IdcampanaNavigation)
+        //         .Include(ac => ac.IdarchivoNavigation)
+        //         .Where(ac => ac.Idcampana == campanaId && ac.Estaactivo == true)
+        //         .Select(ac => new ArchivoCampanaRecord(
+        //             ac.Id,
+        //             ac.Idarchivo,
+        //             ac.Descripcion,
+        //             ac.Idcampana,
+        //             ac.Estaactivo,
+        //             ac.IdarchivoNavigation != null ? new ArchivoRecord(
+        //                 ac.IdarchivoNavigation.Id,
+        //                 ac.IdarchivoNavigation.Url,
+        //                 ac.IdarchivoNavigation.Formato,
+        //                 ac.IdarchivoNavigation.Idtipoarchivo,
+        //                 ac.IdarchivoNavigation.Estaactivo
+        //             ) : null
+        //         ))
+        //         .ToListAsync();
+        //
+        //     return ResultResponse<List<ArchivoCampanaRecord>>.Success(archivos);
+        // }
+        // catch (Exception ex)
+        // {
+        //     _logger.LogError(ex, "Error al obtener archivos de campaña");
+        //     return ResultResponse<List<ArchivoCampanaRecord>>.Failure("Error al obtener archivos de campaña");
+        // }
     }
 
     public async Task<ResultResponse<ArchivoCampanaRecord>> GetArchivoCampanaById(Guid id)
     {
-        try
-        {
-            var ac = await _context.Archivoscampanas
-                .Include(a => a.IdarchivoNavigation)
-                .FirstOrDefaultAsync(a => a.Id == id && a.Estaactivo == true);
-
-            if (ac == null)
-                return ResultResponse<ArchivoCampanaRecord>.Failure("Archivo de campaña no encontrado", 404);
-
-            var record = new ArchivoCampanaRecord(
-                ac.Id,
-                ac.Idarchivo,
-                ac.Descripcion,
-                ac.Idcampana,
-                ac.Estaactivo,
-                ac.IdarchivoNavigation != null ? new ArchivoRecord(
-                    ac.IdarchivoNavigation.Id,
-                    ac.IdarchivoNavigation.Url,
-                    ac.IdarchivoNavigation.Formato,
-                    ac.IdarchivoNavigation.Idtipoarchivo,
-                    ac.IdarchivoNavigation.Estaactivo
-                ) : null
-            );
-            return ResultResponse<ArchivoCampanaRecord>.Success(record);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error al obtener archivo de campaña");
-            return ResultResponse<ArchivoCampanaRecord>.Failure("Error al obtener archivo de campaña");
-        }
+        return null;
+        // try
+        // {
+        //     var ac = await _context.Archivoscampanas
+        //         .Include(a => a.IdarchivoNavigation)
+        //         .FirstOrDefaultAsync(a => a.Id == id && a.Estaactivo == true);
+        //
+        //     if (ac == null)
+        //         return ResultResponse<ArchivoCampanaRecord>.Failure("Archivo de campaña no encontrado", 404);
+        //
+        //     var record = new ArchivoCampanaRecord(
+        //         ac.Id,
+        //         ac.Idarchivo,
+        //         ac.Descripcion,
+        //         ac.Idcampana,
+        //         ac.Estaactivo,
+        //         ac.IdarchivoNavigation != null ? new ArchivoRecord(
+        //             ac.IdarchivoNavigation.Id,
+        //             ac.IdarchivoNavigation.Url,
+        //             ac.IdarchivoNavigation.Formato,
+        //             ac.IdarchivoNavigation.Idtipoarchivo,
+        //             ac.IdarchivoNavigation.Estaactivo
+        //         ) : null
+        //     );
+        //     return ResultResponse<ArchivoCampanaRecord>.Success(record);
+        // }
+        // catch (Exception ex)
+        // {
+        //     _logger.LogError(ex, "Error al obtener archivo de campaña");
+        //     return ResultResponse<ArchivoCampanaRecord>.Failure("Error al obtener archivo de campaña");
+        // }
     }
 
     public async Task<ResultResponse<ArchivoCampanaRecord>> CreateArchivoCampana(ArchivoCampanaCreateRecord createRecord)

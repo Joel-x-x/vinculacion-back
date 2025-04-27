@@ -1,4 +1,6 @@
-﻿namespace AnimalProtection.Domain.Entities;
+﻿using AnimalProtection.Domain.Dto;
+
+namespace AnimalProtection.Domain.Entities;
 
 public partial class Usuario
 {
@@ -30,5 +32,16 @@ public partial class Usuario
 
     public virtual ICollection<Log> Logs { get; set; } = new List<Log>();
     public virtual ICollection<UsuarioRol> UsuariosRoles { get; set; } = new List<UsuarioRol>();
-
+    
+    public static Usuario CreateFromRecord(RegisterUserDto registerUserDto)
+    {
+        return new Usuario
+        {
+            Nombre = registerUserDto.Nombre,
+            Apellido = registerUserDto.Apellido,
+            Email = registerUserDto.Email,
+            Identificacion = registerUserDto.Identificacion,
+            Estaactivo = true
+        };
+    }
 }

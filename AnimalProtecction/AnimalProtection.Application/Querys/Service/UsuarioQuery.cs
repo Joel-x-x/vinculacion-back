@@ -1,6 +1,7 @@
 using AnimalProtecction.Generated.Repositories.Interface;
 using AnimalProtection.Application.Querys.Interface;
 using AnimalProtection.Domain.Dto;
+using AnimalProtection.Domain.Entities;
 using AnimalProtection.Domain.Result;
 
 namespace AnimalProtection.Application.Querys.Service;
@@ -36,6 +37,27 @@ public class UsuarioQueryService: IUsuarioQueryService
     }
 
     public Task<UsuarioDto> GetUserById()
+    {
+        throw new NotImplementedException();
+    }
+
+    public async Task<ResultResponse<Boolean>> RegisterUser(RegisterUserDto 
+        registerUserDto)
+    {
+        // TODO: Validar los datos para el registro
+        
+        // Registrar un nuevo usuario
+        var user = Usuario.CreateFromRecord(registerUserDto);
+        
+        // Guardar el usuario en la base de datos
+        await _usuarioRepository.AddAsync(user);
+        await _usuarioRepository.SaveAsync();
+        
+        // Devolver el usuario registrado
+        return ResultResponse<Boolean>.Success(true, 201);
+    }
+
+    public Task<ResultResponse<bool>> Login(LoginUserDto loginUserDto)
     {
         throw new NotImplementedException();
     }

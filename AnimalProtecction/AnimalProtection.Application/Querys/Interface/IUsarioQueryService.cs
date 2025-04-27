@@ -8,6 +8,11 @@ public interface IUsuarioQueryService
 
     Task<ResultResponse<List<UsuarioDto>>> GetAllUser();
     Task<UsuarioDto>GetUserById();
+
+    Task<ResultResponse<Boolean>> RegisterUser(
+        RegisterUserDto registerUserDto);
+    Task<ResultResponse<Boolean>> Login(
+        LoginUserDto loginUserDto);
     Task<UsuarioDto>GetUserByIdentification();
     
     Task<ResultResponse<UsuarioEmailDto>>GetUserByEmail(string email);
