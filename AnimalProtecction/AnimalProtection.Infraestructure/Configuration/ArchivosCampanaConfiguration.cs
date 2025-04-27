@@ -28,5 +28,11 @@ namespace AnimalProtecction.Configuration;
                 .HasForeignKey(d => d.Idcampana)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("fk_archivocampana");
+
+            entity.HasOne(d => d.IdarchivoNavigation)
+                .WithMany()
+                .HasForeignKey(d => d.Idarchivo)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_archivo");
         }
     }

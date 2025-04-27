@@ -68,6 +68,9 @@ public class ApplicationModule : Module
         builder.RegisterType<CampanaQueryService>()
             .As<ICampanaQueryService>();
 
+        builder.RegisterType<TiposCampanaQueryService>()
+            .As<ITiposCampanaQueryService>();
+
         builder.RegisterType<ArchivoCampanaQueryService>()
             .As<IArchivoCampanaQueryService>();
     }
