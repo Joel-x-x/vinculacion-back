@@ -64,5 +64,11 @@ public class ApplicationModule : Module
         
         builder.RegisterType<CooperantesQueryService>()
             .As<ICooperantesQueryService>();
+
+        builder.RegisterType<CampanaQueryService>()
+            .As<ICampanaQueryService>();
+
+        builder.RegisterType<ArchivoCampanaQueryService>()
+            .As<IArchivoCampanaQueryService>();
     }
 }
