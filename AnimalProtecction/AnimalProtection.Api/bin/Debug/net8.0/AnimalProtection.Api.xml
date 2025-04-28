@@ -4,12 +4,152 @@
         <name>AnimalProtection.Api</name>
     </assembly>
     <members>
-        <member name="M:AnimalProtection.Api.Controller.CooperantesController.GetAllCooperantes(System.Int32,System.Int32)">
+        <member name="M:AnimalProtection.Api.Controller.AdopcionesController.GetAllAdopciones(System.Int32,System.Int32)">
             <summary>
-            Obtiene una lista paginada de trámites.
+            Obtiene una lista paginada de adopciones.
+            </summary>
+            <param name="pageNumber">N�mero de p�gina.</param>
+            <param name="pageSize">Tama�o de p�gina.</param>
+            <returns>Una lista paginada de adopciones.</returns>
+            <response code="200">Devuelve la lista de adopciones paginados.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran adopciones.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.AdopcionesController.GetAdopcionById(System.Guid)">
+            <summary>
+            Obtiene un adopcion por su ID.
+            </summary>
+            <param name="id">ID del adopcion.</param>
+            <returns>El adopcion correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.AdopcionesController.CreateAdopcion(AnimalProtection.Domain.Dto.AdopcionesCreateRecord)">
+            <summary>
+            Crea un nuevo adopcion.
+            </summary>
+            <param name="adopcionesCreateRecord">Datos de la adopcion a crear.</param>
+            <returns>La adopcion creada.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.AdopcionesController.UpdateAdopcion(AnimalProtection.Domain.Dto.AdopcionesUpdateRecord)">
+            <summary>
+            Actualiza un adopcion existente.
+            </summary>
+            <param name="adopcionesUpdateRecord">Datos actualizados de la adopcion.</param>
+            <returns>La adopcion actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.AdopcionesController.DeleteAdopcion(System.Guid)">
+            <summary>
+            Elimina un adopcion por su ID.
+            </summary>
+            <param name="id">ID de la adopcion a eliminar.</param>
+            <returns>Un resultado indicando si la eliminaci�n fue exitosa.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoCampanaController.GetArchivosByCampanaId(System.Guid)">
+            <summary>
+            Obtiene todos los archivos asociados a una campaña.
+            </summary>
+            <param name="campanaId">ID de la campaña.</param>
+            <returns>Lista de archivos de campaña.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoCampanaController.GetArchivoCampanaById(System.Guid)">
+            <summary>
+            Obtiene un archivo de campaña por su ID.
+            </summary>
+            <param name="id">ID del archivo de campaña.</param>
+            <returns>Archivo de campaña.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoCampanaController.CreateArchivoCampana(AnimalProtection.Domain.Dto.ArchivoCampanaCreateRecord)">
+            <summary>
+            Crea un nuevo archivo de campaña.
+            </summary>
+            <param name="createRecord">Datos para crear el archivo de campaña.</param>
+            <returns>Archivo de campaña creado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoCampanaController.UpdateArchivoCampana(System.Guid,AnimalProtection.Domain.Dto.ArchivoCampanaUpdateRecord)">
+            <summary>
+            Actualiza un archivo de campaña existente.
+            </summary>
+            <param name="id">ID del archivo de campaña a actualizar.</param>
+            <param name="updateRecord">Datos actualizados del archivo de campaña.</param>
+            <returns>Archivo de campaña actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoCampanaController.DeleteArchivoCampana(System.Guid)">
+            <summary>
+            Elimina lógicamente un archivo de campaña.
+            </summary>
+            <param name="id">ID del archivo de campaña a eliminar.</param>
+            <returns>True si la eliminación fue exitosa.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoController.GetAllArchivos(System.Int32,System.Int32)">
+            <summary>
+            Listar archivos activos (Estaactivo = true) con paginación.
+            </summary>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoController.GetArchivoById(System.Guid)">
+            <summary>
+            Obtiene un archivo por su ID.
+            </summary>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoController.CreateArchivo(AnimalProtection.Domain.Dto.ArchivoCreateRecord)">
+            <summary>
+            Crea un nuevo archivo.
+            </summary>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoController.UpdateArchivo(AnimalProtection.Domain.Dto.ArchivoUpdateRecord)">
+            <summary>
+            Actualiza un archivo existente.
+            </summary>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoController.DeleteArchivo(System.Guid)">
+            <summary>
+            Elimina lógicamente un archivo (Estaactivo = false).
+            </summary>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.CampanaController.GetAllCampanas(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de campañas activas.
             </summary>
             <param name="pageNumber">Número de página.</param>
             <param name="pageSize">Tamaño de página.</param>
+            <returns>Una lista paginada de campañas.</returns>
+            <response code="200">Devuelve la lista de campañas paginadas.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran campañas.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.CampanaController.GetCampanaById(System.Guid)">
+            <summary>
+            Obtiene una campaña por su ID.
+            </summary>
+            <param name="id">ID de la campaña.</param>
+            <returns>La campaña correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.CampanaController.CreateCampana(AnimalProtection.Domain.Dto.CampanaCreateRecord)">
+            <summary>
+            Crea una nueva campaña.
+            </summary>
+            <param name="campanaCreateRecord">Datos de la campaña a crear.</param>
+            <returns>La campaña creada.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.CampanaController.UpdateCampana(System.Guid,AnimalProtection.Domain.Dto.CampanaUpdateRecord)">
+            <summary>
+            Actualiza una campaña existente.
+            </summary>
+            <param name="id">ID de la campaña a actualizar.</param>
+            <param name="campanaUpdateRecord">Datos actualizados de la campaña.</param>
+            <returns>La campaña actualizada.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.CampanaController.DeleteCampana(System.Guid)">
+            <summary>
+            Elimina lógicamente una campaña.
+            </summary>
+            <param name="id">ID de la campaña a eliminar.</param>
+            <returns>True si la eliminación fue exitosa.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.CooperantesController.GetAllCooperantes(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de tr�mites.
+            </summary>
+            <param name="pageNumber">N�mero de p�gina.</param>
+            <param name="pageSize">Tama�o de p�gina.</param>
             <returns>Una lista paginada de cooperantes.</returns>
             <response code="200">Devuelve la lista de cooperants paginados.</response>
             <response code="400">Si ocurre un error al procesar la solicitud.</response>
@@ -41,7 +181,7 @@
             Elimina un cooperante por su ID.
             </summary>
             <param name="id">ID del cooperante a eliminar.</param>
-            <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
+            <returns>Un resultado indicando si la eliminaci�n fue exitosa.</returns>
         </member>
         <member name="M:AnimalProtection.Api.Controller.DatosInstitucionController.GetAllDatosInstitucion(System.Int32,System.Int32)">
             <summary>
@@ -54,7 +194,7 @@
             <response code="400">Si ocurre un error al procesar la solicitud.</response>
             <response code="404">Si no se encuentran datos de institución.</response>
         </member>
-        <member name="M:AnimalProtection.Api.Controller.DatosInstitucionController.GetDatosInstitucionById(System.Guid)">
+        <member name="M:AnimalProtection.Api.Controller.DatosInstitucionController.GetDatosInstitucionById">
             <summary>
             Obtiene un dato de institución por su ID.
             </summary>
@@ -117,6 +257,45 @@
             Elimina un especie por su ID.
             </summary>
             <param name="id">ID del especie a eliminar.</param>
+            <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.EstadostramiteController.GetAllEstadostramites(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de estadostramite.
+            </summary>
+            <param name="pageNumber">Número de página.</param>
+            <param name="pageSize">Tamaño de página.</param>
+            <returns>Una lista paginada de trámites.</returns>
+            <response code="200">Devuelve la lista de estadostramite paginados.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran estadostramite.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.EstadostramiteController.GetEstadostramiteById(System.Guid)">
+            <summary>
+            Obtiene un estadostramite por su ID.
+            </summary>
+            <param name="id">ID del estadostramite.</param>
+            <returns>El estadostramite correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.EstadostramiteController.CreateEstadostramite(AnimalProtection.Domain.Dto.EstadostramiteCreateRecord)">
+            <summary>
+            Crea un nuevo estadostramite.
+            </summary>
+            <param name="tramiteCreateRecord">Datos del estadostramite a crear.</param>
+            <returns>El estadostramite creado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.EstadostramiteController.UpdateEstadostramite(AnimalProtection.Domain.Dto.EstadostramiteUpdateRecord)">
+            <summary>
+            Actualiza un estadostramite existente.
+            </summary>
+            <param name="tramiteUpdateRecord">Datos actualizados del estadostramite.</param>
+            <returns>El estadostramite actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.EstadostramiteController.DeleteEstadostramite(System.Guid)">
+            <summary>
+            Elimina un estadostramite por su ID.
+            </summary>
+            <param name="id">ID del estadostramite a eliminar.</param>
             <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
         </member>
         <member name="M:AnimalProtection.Api.Controller.GeneroController.GetAllGeneros(System.Int32,System.Int32)">
@@ -193,6 +372,45 @@
             <param name="id">ID de la mascota a eliminar.</param>
             <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
         </member>
+        <member name="M:AnimalProtection.Api.Controller.MenuController.GetAllMenus(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de menus.
+            </summary>
+            <param name="pageNumber">Numero de pagina.</param>
+            <param name="pageSize">Tamanio de pagina.</param>
+            <returns>Una lista paginada de menus.</returns>
+            <response code="200">Devuelve la lista de menus paginados.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran menus.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.MenuController.GetMenuById(System.Guid)">
+            <summary>
+            Obtiene un menu por su ID.
+            </summary>
+            <param name="id">ID del menu.</param>
+            <returns>El menu correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.MenuController.CreateMenu(AnimalProtection.Domain.Dto.MenuCreateRecord)">
+            <summary>
+            Crea un nuevo menu.
+            </summary>
+            <param name="menuCreateRecord">Datos del menu a crear.</param>
+            <returns>El menu creado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.MenuController.UpdateMenu(AnimalProtection.Domain.Dto.MenuUpdateRecord)">
+            <summary>
+            Actualiza un menu existente.
+            </summary>
+            <param name="menuUpdateRecord">Datos actualizados del menu.</param>
+            <returns>El menu actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.MenuController.DeleteMenu(System.Guid)">
+            <summary>
+            Elimina un menu por su ID.
+            </summary>
+            <param name="id">ID del menu a eliminar.</param>
+            <returns>Un resultado indicando si la eliminacion fue exitosa.</returns>
+        </member>
         <member name="M:AnimalProtection.Api.Controller.PreguntasFrecuenteController.GetAllPreguntasFrecuente(System.Int32,System.Int32)">
             <summary>
             Obtiene una lista paginada de Preguntas Frecuentes.
@@ -267,6 +485,144 @@
             Elimina un raza por su ID.
             </summary>
             <param name="id">ID del raza a eliminar.</param>
+            <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.RolController.GetAllRol(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de roles.
+            </summary>
+            <param name="pageNumber">Número de página.</param>
+            <param name="pageSize">Tamaño de página.</param>
+            <returns>Una lista paginada de roles.</returns>
+            <response code="200">Devuelve la lista de roles paginados.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran roles.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.RolController.GetRolById(System.Guid)">
+            <summary>
+            Obtiene un rol por su ID.
+            </summary>
+            <param name="id">ID del rol.</param>
+            <returns>Un rol.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.RolController.CreateRol(RolCreateRecord)">
+            <summary>
+            Crea un nuevo rol.
+            </summary>
+            <param name="rolCreateRecord">Rol a crear.</param>
+            <returns>Rol creado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.RolController.UpdateRol(RolUpdateRecord)">
+            <summary>
+            Actualiza un rol.
+            </summary>
+            <param name="rolUpdateRecord">Rol a actualizar.</param>
+            <returns>Rol actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.RolController.DeleteRol(System.Guid)">
+            <summary>
+            Elimina un rol.
+            </summary>
+            <param name="id">ID del rol.</param>
+            <returns>Respuesta de eliminación.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TiposArchivoController.GetAllTiposArchivo(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de Tipos de Archivo activos.
+            </summary>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TiposArchivoController.GetTiposArchivoById(System.Guid)">
+            <summary>
+            Obtiene un Tipo de Archivo por su ID.
+            </summary>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TiposArchivoController.CreateTiposArchivo(AnimalProtection.Domain.Dto.TiposArchivoCreateRecord)">
+            <summary>
+            Crea un nuevo Tipo de Archivo.
+            </summary>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TiposArchivoController.UpdateTiposArchivo(AnimalProtection.Domain.Dto.TiposArchivoUpdateRecord)">
+            <summary>
+            Actualiza un Tipo de Archivo existente.
+            </summary>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TiposArchivoController.DeleteTiposArchivo(System.Guid)">
+            <summary>
+            Elimina lógicamente un Tipo de Archivo (marca Estaactivo = false).
+            </summary>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TiposCampanaController.GetAll">
+            <summary>
+            Obtiene todos los tipos de campaña activos.
+            </summary>
+            <returns>Lista de tipos de campaña.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TiposCampanaController.GetById(System.Guid)">
+            <summary>
+            Obtiene un tipo de campaña por su ID.
+            </summary>
+            <param name="id">ID del tipo de campaña.</param>
+            <returns>Tipo de campaña.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TiposCampanaController.Create(AnimalProtection.Domain.Dto.TiposCampanaCreateRecord)">
+            <summary>
+            Crea un nuevo tipo de campaña.
+            </summary>
+            <param name="createRecord">Datos para crear el tipo de campaña.</param>
+            <returns>Tipo de campaña creado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TiposCampanaController.Update(System.Guid,AnimalProtection.Domain.Dto.TiposCampanaUpdateRecord)">
+            <summary>
+            Actualiza un tipo de campaña existente.
+            </summary>
+            <param name="id">ID del tipo de campaña a actualizar.</param>
+            <param name="updateRecord">Datos actualizados del tipo de campaña.</param>
+            <returns>Tipo de campaña actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TiposCampanaController.Delete(System.Guid)">
+            <summary>
+            Elimina lógicamente un tipo de campaña.
+            </summary>
+            <param name="id">ID del tipo de campaña a eliminar.</param>
+            <returns>True si la eliminación fue exitosa.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TipostramiteController.GetAllTipostramites(System.Int32,System.Int32)">
+            <summary>
+            Obtiene una lista paginada de tipostramite.
+            </summary>
+            <param name="pageNumber">Número de página.</param>
+            <param name="pageSize">Tamaño de página.</param>
+            <returns>Una lista paginada de trámites.</returns>
+            <response code="200">Devuelve la lista de tipostramite paginados.</response>
+            <response code="400">Si ocurre un error al procesar la solicitud.</response>
+            <response code="404">Si no se encuentran tipostramite.</response>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TipostramiteController.GetTipostramiteById(System.Guid)">
+            <summary>
+            Obtiene un tipostramite por su ID.
+            </summary>
+            <param name="id">ID del tipostramite.</param>
+            <returns>El tipostramite correspondiente al ID proporcionado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TipostramiteController.CreateTipostramite(AnimalProtection.Domain.Dto.TiposTramiteCreateRecord)">
+            <summary>
+            Crea un nuevo tipostramite.
+            </summary>
+            <param name="tramiteCreateRecord">Datos del tipostramite a crear.</param>
+            <returns>El tipostramite creado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TipostramiteController.UpdateTipostramite(AnimalProtection.Domain.Dto.TiposTramiteUpdateRecord)">
+            <summary>
+            Actualiza un tipostramite existente.
+            </summary>
+            <param name="tramiteUpdateRecord">Datos actualizados del tipostramite.</param>
+            <returns>El tipostramite actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.TipostramiteController.DeleteTipostramite(System.Guid)">
+            <summary>
+            Elimina un tipostramite por su ID.
+            </summary>
+            <param name="id">ID del tipostramite a eliminar.</param>
             <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
         </member>
         <member name="M:AnimalProtection.Api.Controller.TramiteController.GetAllTramites(System.Int32,System.Int32)">

@@ -13,4 +13,6 @@ public partial class Archivoscampana
     public bool? Estaactivo { get; set; }
 
     public virtual Campana IdcampanaNavigation { get; set; } = null!;
+
+    public virtual Archivo IdarchivoNavigation { get; set; } = null!;
 }
