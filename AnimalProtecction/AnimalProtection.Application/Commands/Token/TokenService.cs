@@ -60,7 +60,7 @@ public class TokenService : ITokenService
     public string RenewToken(string expiredToken, string refreshToken)
     {
         var tokenHandler = new JwtSecurityTokenHandler();
-        var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
+        var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!);
 
         // Validar el refresh token
         var userId = GetUserIdFromToken(expiredToken);

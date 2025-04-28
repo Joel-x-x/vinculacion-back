@@ -45,5 +45,8 @@ public class UsuarioConfiguration: IEntityTypeConfiguration<Usuario>
             .HasMaxLength(4)
             .IsFixedLength()
             .HasColumnName("pin");
+        entity.Property(e => e.Clave)
+            .HasMaxLength(100)
+            .HasColumnName("clave");
     }
 }
