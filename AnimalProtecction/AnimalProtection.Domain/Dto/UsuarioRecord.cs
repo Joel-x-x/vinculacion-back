@@ -29,13 +29,14 @@ public record UsuarioDto(
 public record RegisterUserDto(
     string Nombre,
     string Apellido,
+    string Clave,
     string Email,
     string Identificacion
 ); 
 
 public record LoginUserDto(
-    string Email,
-    string Password
+    string Clave,
+    string Email
 ); 
      
 public record UsuarioEmailDto(

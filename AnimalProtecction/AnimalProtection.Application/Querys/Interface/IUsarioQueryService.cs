@@ -11,7 +11,7 @@ public interface IUsuarioQueryService
 
     Task<ResultResponse<Boolean>> RegisterUser(
         RegisterUserDto registerUserDto);
-    Task<ResultResponse<Boolean>> Login(
+    Task<ResultResponse<UsuarioDto>> Login(
         LoginUserDto loginUserDto);
     Task<UsuarioDto>GetUserByIdentification();
     

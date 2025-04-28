@@ -1,6 +1,7 @@
 using AnimalProtection.Application.Commands.Token;
 using AnimalProtection.Application.Querys.Interface;
 using AnimalProtection.Domain.Dto;
+using AnimalProtection.Domain.Result;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,13 +25,18 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
-    public IActionResult Login([FromBody] LoginRequest request)
+    public async Task<IActionResult> Login([FromBody] LoginUserDto request)
     {
         // Simulación de autenticación
-        var userId = "123"; // Obtén el ID del usuario después de validar las credenciales.
+        var user = await _usuarioQueryService.Login(request);
+
+        if (!user.IsSuccess)
+        {
+            return BadRequest("Credenciales inválidas");
+        }
 
         // Generar JWT y refresh token
-        var jwtToken = _tokenService.GenerateJwtToken(userId);
+        var jwtToken = _tokenService.GenerateJwtToken((user.Value.Id).ToString());
         var refreshToken = _tokenService.GenerateRefreshToken();
 
         return Ok(new { Token = jwtToken, RefreshToken = refreshToken });
