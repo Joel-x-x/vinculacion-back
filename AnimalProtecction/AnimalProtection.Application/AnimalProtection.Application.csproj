@@ -15,6 +15,7 @@
 
     <ItemGroup>
       <PackageReference Include="EntityFrameworkCore.Paginate" Version="1.0.0" />
+      <PackageReference Include="FluentValidation" Version="11.11.0" />
       <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
       <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.3.1" />
     </ItemGroup>

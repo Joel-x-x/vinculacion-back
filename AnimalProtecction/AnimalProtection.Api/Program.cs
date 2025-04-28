@@ -2,8 +2,11 @@ using System.Reflection;
 using System.Text;
 using AnimalProtecction.Generated;
 using AnimalProtection.Api.Configuration;
+using AnimalProtection.Api.Filters;
+using AnimalProtection.Domain.Shared;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using ClinicMedicalAppointments.Api.Filters;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +32,11 @@ builder.Services.AddCors(options =>
 var connectionString = builder.Configuration.GetConnectionString("AnimalProtectionDb");
 builder.Services.AddDbContext<AnimalprotectionContext>(options =>
     options.UseNpgsql(connectionString));
+
+builder.Services.AddHttpClient<RecaptchaMiddleware>();
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JWT"));
+builder.Services.Configure<Settings>(builder.Configuration.GetSection("Settings"));
+builder.Services.Configure<RateLimitingSettings>(builder.Configuration.GetSection("RateLimiting"));
 
 var redisConnectionString = builder.Configuration["Redis:ConnectionString"];
 var redis = ConnectionMultiplexer.Connect(redisConnectionString);
@@ -126,6 +134,10 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+//app.UseMiddleware<ValidationMiddleware>();
+//app.UseMiddleware<CsrfProtectionMiddleware>();
+app.UseMiddleware<ApiKeyMiddleware>();
+app.UseMiddleware<RateLimitingMiddleware>();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

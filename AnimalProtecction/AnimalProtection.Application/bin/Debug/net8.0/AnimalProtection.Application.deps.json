@@ -11,6 +11,7 @@
           "AnimalProtection.Domain": "1.0.0",
           "AnimalProtection.Infraestructure": "1.0.0",
           "EntityFrameworkCore.Paginate": "1.0.0",
+          "FluentValidation": "11.11.0",
           "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": "5.1.0",
           "System.IdentityModel.Tokens.Jwt": "8.3.1"
         },
@@ -23,6 +24,14 @@
           "lib/EntityFrameworkCore.Paginate.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "FluentValidation/11.11.0": {
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.11.0.0"
           }
         }
       },
@@ -316,6 +325,13 @@
       "sha512": "sha512-NVZl8Xkv6v7s5c1VBRq0cf0Bw9UZ4fSA918iSQuSxJQCYAeysAUV+1XaJKfXDuG7ijWqAlKjty+eto1K0txyOA==",
       "path": "entityframeworkcore.paginate/1.0.0",
       "hashPath": "entityframeworkcore.paginate.1.0.0.nupkg.sha512"
+    },
+    "FluentValidation/11.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cyIVdQBwSipxWG8MA3Rqox7iNbUNUTK5bfJi9tIdm4CAfH71Oo5ABLP4/QyrUwuakqpUEPGtE43BDddvEehuYw==",
+      "path": "fluentvalidation/11.11.0",
+      "hashPath": "fluentvalidation.11.11.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Mvc.Versioning/5.1.0": {
       "type": "package",
