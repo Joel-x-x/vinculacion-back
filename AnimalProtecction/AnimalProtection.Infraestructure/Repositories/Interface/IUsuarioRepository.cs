@@ -1,5 +1,5 @@
-using AnimalProtecction.Domain.Entities;
 using AnimalProtecction.GenericRepository;
+using AnimalProtection.Domain.Entities;
 using AnimalProtection.Domain.Result;
 
 namespace AnimalProtecction.Generated.Repositories.Interface;

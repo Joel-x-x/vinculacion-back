@@ -10,11 +10,39 @@
         "dependencies": {
           "AnimalProtection.Domain": "1.0.0",
           "AnimalProtection.Infraestructure": "1.0.0",
+          "BCrypt.Net-Next": "4.0.3",
+          "EntityFrameworkCore.Paginate": "1.0.0",
+          "FluentValidation": "11.11.0",
           "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": "5.1.0",
+          "Octokit": "14.0.0",
           "System.IdentityModel.Tokens.Jwt": "8.3.1"
         },
         "runtime": {
           "AnimalProtection.Application.dll": {}
+        }
+      },
+      "BCrypt.Net-Next/4.0.3": {
+        "runtime": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.0.3.0"
+          }
+        }
+      },
+      "EntityFrameworkCore.Paginate/1.0.0": {
+        "runtime": {
+          "lib/EntityFrameworkCore.Paginate.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "FluentValidation/11.11.0": {
+        "runtime": {
+          "lib/net8.0/FluentValidation.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.11.0.0"
+          }
         }
       },
       "Microsoft.AspNetCore.Mvc.Versioning/5.1.0": {
@@ -228,6 +256,14 @@
           }
         }
       },
+      "Octokit/14.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/Octokit.dll": {
+            "assemblyVersion": "14.0.0.0",
+            "fileVersion": "14.0.0.0"
+          }
+        }
+      },
       "Pipelines.Sockets.Unofficial/2.2.8": {
         "dependencies": {
           "System.IO.Pipelines": "5.0.1"
@@ -266,11 +302,12 @@
       "System.IO.Pipelines/5.0.1": {},
       "AnimalProtection.Domain/1.0.0": {
         "dependencies": {
+          "EntityFrameworkCore.Paginate": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": "5.1.0"
         },
         "runtime": {
           "AnimalProtection.Domain.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -278,6 +315,7 @@
       "AnimalProtection.Infraestructure/1.0.0": {
         "dependencies": {
           "AnimalProtection.Domain": "1.0.0",
+          "EntityFrameworkCore.Paginate": "1.0.0",
           "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer": "5.1.0",
           "Microsoft.EntityFrameworkCore": "8.0.11",
           "Microsoft.EntityFrameworkCore.Relational": "8.0.11",
@@ -286,7 +324,7 @@
         },
         "runtime": {
           "AnimalProtection.Infraestructure.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -298,6 +336,27 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BCrypt.Net-Next/4.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
+      "path": "bcrypt.net-next/4.0.3",
+      "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
+    },
+    "EntityFrameworkCore.Paginate/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NVZl8Xkv6v7s5c1VBRq0cf0Bw9UZ4fSA918iSQuSxJQCYAeysAUV+1XaJKfXDuG7ijWqAlKjty+eto1K0txyOA==",
+      "path": "entityframeworkcore.paginate/1.0.0",
+      "hashPath": "entityframeworkcore.paginate.1.0.0.nupkg.sha512"
+    },
+    "FluentValidation/11.11.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cyIVdQBwSipxWG8MA3Rqox7iNbUNUTK5bfJi9tIdm4CAfH71Oo5ABLP4/QyrUwuakqpUEPGtE43BDddvEehuYw==",
+      "path": "fluentvalidation/11.11.0",
+      "hashPath": "fluentvalidation.11.11.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Mvc.Versioning/5.1.0": {
       "type": "package",
@@ -452,6 +511,13 @@
       "sha512": "sha512-GDXiMS9peEdjSCU/rfgyHruio7q6tYuywGaktqEi6UPQ6ILechp3fVVX+dHXkIXt4nklCBzYVWkzFrSL9ubKUA==",
       "path": "npgsql.entityframeworkcore.postgresql/8.0.0",
       "hashPath": "npgsql.entityframeworkcore.postgresql.8.0.0.nupkg.sha512"
+    },
+    "Octokit/14.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jGOuTH1l+TCpJH+fwYOp7USzHDuGfN1jKbLz3J2COwyn+wL08eynvpnM6rY2qkzIEXum3PN2p2QkP3BW/p9Qcw==",
+      "path": "octokit/14.0.0",
+      "hashPath": "octokit.14.0.0.nupkg.sha512"
     },
     "Pipelines.Sockets.Unofficial/2.2.8": {
       "type": "package",

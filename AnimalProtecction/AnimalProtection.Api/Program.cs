@@ -2,8 +2,11 @@ using System.Reflection;
 using System.Text;
 using AnimalProtecction.Generated;
 using AnimalProtection.Api.Configuration;
+using AnimalProtection.Api.Filters;
+using AnimalProtection.Domain.Shared;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using ClinicMedicalAppointments.Api.Filters;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,13 +16,31 @@ using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Agregar configuración de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigins",
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:4200") // Dominios permitidos
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
+
 // Configuración de la cadena de conexión
 var connectionString = builder.Configuration.GetConnectionString("AnimalProtectionDb");
 builder.Services.AddDbContext<AnimalprotectionContext>(options =>
     options.UseNpgsql(connectionString));
 
-var redisConnectionString = builder.Configuration["Redis:ConnectionString"];
-var redis = ConnectionMultiplexer.Connect(redisConnectionString);
+builder.Services.AddHttpClient<RecaptchaMiddleware>();
+builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JWT"));
+builder.Services.Configure<Settings>(builder.Configuration.GetSection("Settings"));
+builder.Services.Configure<RateLimitingSettings>(builder.Configuration.GetSection("RateLimiting"));
+builder.Services.Configure<GitHubSettings>(builder.Configuration.GetSection("GitHubSettings"));
+
+//var redisConnectionString = builder.Configuration["Redis:ConnectionString"];
+//var redis = ConnectionMultiplexer.Connect(redisConnectionString);
 
 // Configurar Autofac
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
@@ -71,6 +92,19 @@ builder.Services.AddSwaggerGen(options =>
 
 // Configurar controladores
 builder.Services.AddControllers();
+
+// TODO: Corregir no se estan mostrando correctamente los caracteres especiales
+// builder.Services.AddControllers()
+//     .AddJsonOptions(options =>
+//     {
+//         options.JsonSerializerOptions.Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping;
+//         options.JsonSerializerOptions.PropertyNamingPolicy = null; // Evita que los nombres de las propiedades se serialicen en camelCase
+//     });
+// builder.Services.AddDbContext<AnimalprotectionContext>(options =>
+//     options.UseNpgsql(connectionString, x => x.EnableRetryOnFailure())
+//         .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+// );
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -87,6 +121,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 var app = builder.Build();
 
+// Habilitar CORS antes de usar controladores
+app.UseCors("AllowSpecificOrigins");
+
 // Configuración del pipeline
 if (app.Environment.IsDevelopment())
 {
@@ -98,6 +135,10 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+//app.UseMiddleware<ValidationMiddleware>();
+//app.UseMiddleware<CsrfProtectionMiddleware>();
+app.UseMiddleware<ApiKeyMiddleware>();
+app.UseMiddleware<RateLimitingMiddleware>();
 app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();

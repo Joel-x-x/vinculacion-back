@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using AnimalProtection.Domain.Dto;
 
-namespace AnimalProtecction.Domain.Entities;
+namespace AnimalProtection.Domain.Entities;
 
 public partial class Menu
 {
@@ -9,13 +8,40 @@ public partial class Menu
 
     public string Nombre { get; set; } = null!;
 
-    public string? Descripcion { get; set; }
+    public string Descripcion { get; set; } = null!;
 
-    public string Ruta { get; set; } = null!;
+    public string Link { get; set; } = null!;
 
-    public string? Icono { get; set; }
+    public bool? Estaactivo { get; set; }
 
-    public bool? Activo { get; set; }
+    public virtual ICollection<Menusrol> Menusrols { get; set; } = new List<Menusrol>();
 
-    public virtual ICollection<Rolmenu> Rolmenus { get; set; } = new List<Rolmenu>();
+    //Crear el metodo para generar el menu
+    public static Menu CreateFromRecord(MenuCreateRecord menuCreateRecord)
+    {
+        return new Menu
+        {
+            Id = Guid.NewGuid(),
+            Nombre = menuCreateRecord.Nombre,
+            Descripcion = menuCreateRecord.Descripcion,
+            Link = menuCreateRecord.Link,
+            Estaactivo = true
+        };
+    }
+
+    public void UpdateFromRecord(MenuUpdateRecord menuUpdateRecord)
+    {
+        if (!string.Equals(Nombre, menuUpdateRecord.Nombre, StringComparison.Ordinal))
+            Nombre = menuUpdateRecord.Nombre;
+        if (!string.Equals(Descripcion, menuUpdateRecord.Descripcion, StringComparison.Ordinal))
+            Descripcion = menuUpdateRecord.Descripcion;
+        if (!string.Equals(Link, menuUpdateRecord.Link, StringComparison.Ordinal))
+            Link = menuUpdateRecord.Link;
+    }
+
+    public void eliminar()
+    {
+        Estaactivo = false;
+    }
+
 }

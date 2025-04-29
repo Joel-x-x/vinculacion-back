@@ -1,29 +1,32 @@
-using AnimalProtecction.Domain.Entities;
+using AnimalProtection.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace AnimalProtecction.Configuration;
+namespace AnimalProtection.Configuration;
 
-    public class RolConfiguration : IEntityTypeConfiguration<Rol>
+public class RolConfiguration : IEntityTypeConfiguration<Rol>
+{
+    public void Configure(EntityTypeBuilder<Rol> entity)
     {
-        public void Configure(EntityTypeBuilder<Rol> entity)
-        {
-            entity.HasKey(e => e.Id).HasName("rol_pkey");
+        entity.HasKey(e => e.Id).HasName("roles_pkey");
 
-            entity.ToTable("rol");
+        entity.ToTable("roles");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
-            entity.Property(e => e.Estado).HasColumnName("estado");
-            entity.Property(e => e.Fechacreacion)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("fechacreacion");
-            entity.Property(e => e.Fechamodificacion)
-                .HasColumnType("timestamp without time zone")
-                .HasColumnName("fechamodificacion");
-            entity.Property(e => e.Rol1)
-                .HasColumnType("character varying")
-                .HasColumnName("rol");
-        }
+        entity.Property(e => e.Id)
+            .ValueGeneratedNever()
+            .HasColumnName("id");
+
+        entity.Property(e => e.Nombre)
+            .IsRequired()
+            .HasColumnName("nombre");
+        
+        entity.Property(e => e.Descripcion)
+            .HasColumnName("descripcion");
+        
+        entity.Property(e => e.Esadministrador)
+            .HasColumnName("esadministrador");
+        
+        entity.Property(e => e.Estaactivo)
+            .HasColumnName("estaactivo");
     }
+}

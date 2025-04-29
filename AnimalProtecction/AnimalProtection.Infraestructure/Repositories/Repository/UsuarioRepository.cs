@@ -1,6 +1,6 @@
-using AnimalProtecction.Domain.Entities;
 using AnimalProtecction.Generated.Repositories.Interface;
 using AnimalProtecction.GenericRepository;
+using AnimalProtection.Domain.Entities;
 using AnimalProtection.Domain.Result;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,7 +12,6 @@ public class UsuarioRepository : GenericRepository<Usuario>,IUsuarioRepository
     {
     }
 
-    
     public async Task<ResultResponse<Usuario>> GetByEmail(string email)
     {
         var usuario = await _context.Usuarios.FirstOrDefaultAsync(d => d.Email ==email);
