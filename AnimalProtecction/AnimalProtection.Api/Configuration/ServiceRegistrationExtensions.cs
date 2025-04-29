@@ -1,7 +1,7 @@
+using AnimalProtection.Application.Commands.Cdn;
 using AnimalProtection.Application.Commands.Token;
 using AnimalProtection.Application.Querys.Interface;
 using AnimalProtection.Application.Querys.Service;
-using AnimalProtection.Repositories.Repository;
 using Autofac;
 using Module = Autofac.Module;
 
@@ -70,5 +70,11 @@ public class ApplicationModule : Module
 
         builder.RegisterType<ArchivoCampanaQueryService>()
             .As<IArchivoCampanaQueryService>();
+        
+        builder.RegisterType<GitHubService>()
+            .As<IGitHubService>();
+        
+        builder.RegisterType<OrquestadorService>()
+            .As<IOrquestadorService>();
     }
 }

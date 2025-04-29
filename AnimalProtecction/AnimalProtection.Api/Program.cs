@@ -37,9 +37,10 @@ builder.Services.AddHttpClient<RecaptchaMiddleware>();
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JWT"));
 builder.Services.Configure<Settings>(builder.Configuration.GetSection("Settings"));
 builder.Services.Configure<RateLimitingSettings>(builder.Configuration.GetSection("RateLimiting"));
+builder.Services.Configure<GitHubSettings>(builder.Configuration.GetSection("GitHubSettings"));
 
-var redisConnectionString = builder.Configuration["Redis:ConnectionString"];
-var redis = ConnectionMultiplexer.Connect(redisConnectionString);
+//var redisConnectionString = builder.Configuration["Redis:ConnectionString"];
+//var redis = ConnectionMultiplexer.Connect(redisConnectionString);
 
 // Configurar Autofac
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());

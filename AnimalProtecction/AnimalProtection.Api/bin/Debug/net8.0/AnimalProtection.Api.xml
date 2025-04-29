@@ -43,6 +43,42 @@
             <param name="id">ID de la adopcion a eliminar.</param>
             <returns>Un resultado indicando si la eliminaci�n fue exitosa.</returns>
         </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoCampanaController.GetArchivosByCampanaId(System.Guid)">
+            <summary>
+            Obtiene todos los archivos asociados a una campaña.
+            </summary>
+            <param name="campanaId">ID de la campaña.</param>
+            <returns>Lista de archivos de campaña.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoCampanaController.GetArchivoCampanaById(System.Guid)">
+            <summary>
+            Obtiene un archivo de campaña por su ID.
+            </summary>
+            <param name="id">ID del archivo de campaña.</param>
+            <returns>Archivo de campaña.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoCampanaController.CreateArchivoCampana(AnimalProtection.Domain.Dto.ArchivoCampanaCreateRecord)">
+            <summary>
+            Crea un nuevo archivo de campaña.
+            </summary>
+            <param name="createRecord">Datos para crear el archivo de campaña.</param>
+            <returns>Archivo de campaña creado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoCampanaController.UpdateArchivoCampana(System.Guid,AnimalProtection.Domain.Dto.ArchivoCampanaUpdateRecord)">
+            <summary>
+            Actualiza un archivo de campaña existente.
+            </summary>
+            <param name="id">ID del archivo de campaña a actualizar.</param>
+            <param name="updateRecord">Datos actualizados del archivo de campaña.</param>
+            <returns>Archivo de campaña actualizado.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.ArchivoCampanaController.DeleteArchivoCampana(System.Guid)">
+            <summary>
+            Elimina lógicamente un archivo de campaña.
+            </summary>
+            <param name="id">ID del archivo de campaña a eliminar.</param>
+            <returns>True si la eliminación fue exitosa.</returns>
+        </member>
         <member name="M:AnimalProtection.Api.Controller.ArchivoController.GetAllArchivos(System.Int32,System.Int32)">
             <summary>
             Listar archivos activos (Estaactivo = true) con paginación.
@@ -261,6 +297,23 @@
             </summary>
             <param name="id">ID del estadostramite a eliminar.</param>
             <returns>Un resultado indicando si la eliminación fue exitosa.</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.FileController.UploadFile(AnimalProtection.Domain.Dto.UploadRequestDto)">
+            <summary>
+            UploadFile
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.FileController.UploadFile(AnimalProtection.Domain.Dto.UploadsRequestDto)">
+            <returns>string path</returns>
+        </member>
+        <member name="M:AnimalProtection.Api.Controller.FileController.UploadFileBase64(AnimalProtection.Domain.Dto.UploadFilesRequestDto)">
+            <summary>
+            UploadFiles
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
         </member>
         <member name="M:AnimalProtection.Api.Controller.GeneroController.GetAllGeneros(System.Int32,System.Int32)">
             <summary>
